@@ -1,0 +1,106 @@
+@import 'Pagepane';
+
+.pretripPage.pagePaneContainer {
+  .titleSlide .pagePaneContent {
+    .section1 {
+      background: $pretripColor;
+
+      h1 {
+        background: #ffffff;
+        color: $pretripColor;
+      }
+
+      .sep {
+        background: $pretripColor;
+      }
+
+      img {
+        bottom: -63px;
+        left: 280px;
+      }
+    }
+
+    .section2 {
+      background: #ffffff;
+
+      p {
+        color: $pretripColor;
+        padding-top: 100px;
+        margin-bottom: 50px;
+      }
+
+      button {
+        background: $pretripColor;
+      }
+    }
+  }
+
+  .bulletSlide {
+    background: #222222 url("../img/pretripSlider.png") center center no-repeat;
+    background-size: cover;
+    height: 100%;
+
+    h1 {
+      color: #ffffff;
+      font-size: 90px;
+      margin-right: 160px;
+    }
+
+    .firstFlipSlide {
+      color: #ffffff;
+      font-size: 36px;
+      line-height: 52px;
+      padding-top: 200px;
+      padding-left: 80px;
+      padding-right: 80px;
+      text-align: left;
+    }
+
+    .bulletSub {
+      color: #ffffff;
+      padding-left: 120px;
+      padding-right: 160px;
+      font-size: 45px;
+    }
+  }
+
+  .quoteSlide {
+    .quoteText {
+      padding-right: 160px;
+    }
+  }
+
+  .owl-carousel {
+    .sliderContent {
+      height: 840px;
+
+      &.backSide {
+        padding-left: 80px;
+        padding-right: 80px;
+      }
+    }
+
+    .owl-item img {
+      padding-top: 65px;
+    }
+
+    .owl-next {
+      top: 400px;
+    }
+  }
+
+  .todayTomorrowSlide {
+    .todayTomorrowContainer {
+      height: 1120px;
+    }
+  }
+
+  .endSlide {
+    background: url("../img/Pre-TripEND.jpg") top center no-repeat;
+    background-size: contain;
+
+    button {
+      background: $tripColor;
+    }
+  }
+}

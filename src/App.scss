@@ -1,0 +1,174 @@
+//dependencies
+@import 'partials/normalize';
+@import 'partials/animate';
+@import 'partials/fonts';
+@import 'partials/colors';
+@import '../node_modules/owl.carousel/dist/assets/owl.carousel.min.css';
+@import '../node_modules/antd/dist/antd.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Source Sans Pro", arial, sans-serif;
+  font-size: 20px;
+  //remove ability to highlight text
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.row {
+  max-width: 100% !important;
+}
+
+h1 {
+  font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
+  font-size: 180px;
+  color: #212226;
+  font-weight: 200;
+  opacity: 1;
+  line-height: 1;
+  margin-top: 0;
+}
+
+.pagePaneContent {
+  position: relative;
+
+  h1 {
+    font-size: 110px;
+  }
+}
+
+button {
+  display: block;
+  background: $inspireColor;
+  color: #ffffff;
+  padding: 40px 140px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 25px;
+  font-family: SourceSansPro-Bold, helvetica, arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.pagePaneContainer {
+  position: relative;
+  font-family: SourceSansPro-Regular, helvetica, arial, sans-serif;
+  width: 100vw;
+  min-width: 1440px;
+}
+
+.switch-wrapper {
+  position: relative;
+}
+
+.switch-wrapper > div {
+  position: absolute;
+}
+
+.logVars {
+  display: none;
+  background: rgba(0,0,0, 0.8);
+  color: #00FF00;
+  position: fixed;
+  z-index: 9999;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  font-family: helvetica, arial, sans-serif;
+
+  span {
+    color: #ffffff;
+  }
+}
+
+.infoDrawer {
+  padding: 80px 160px 80px 120px;
+  color: #000000;
+  position: relative;
+
+  .drawerTitle {
+    color: #000000;
+    font-family: SourceSansPro-Bold, helvetica, arial, sans-serif;
+    font-size: 110px;
+    line-height: 110px;
+    padding-bottom: 40px;
+
+    &.ndc {
+      padding-top: 200px;
+    }
+
+    &.oneorder {
+      padding-top: 200px;
+    }
+  }
+
+  p {
+    color: #000000;
+    font-family: SourceSansPro-Regular, helvetica, arial, sans-serif;
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  img {
+    position: absolute;
+    top: 918px;
+    left: -80px;
+    border: 10px solid #fff;
+    border-radius: 50%;
+  }
+}
+
+.ant-drawer.ant-drawer-open .ant-drawer-mask {
+  opacity: 1;
+}
+
+.ant-drawer-right.ant-drawer-open .ant-drawer-content-wrapper {
+  box-shadow: none;
+}
+
+.ant-drawer .ant-drawer-content {
+  margin-left: 80px !important;
+}
+
+.ant-drawer-wrapper-body {
+  overflow: visible !important;
+  box-shadow: rgba(0, 0, 0, 0.65);
+}
+
+.ant-drawer-mask {
+  background-color: rgba(0, 0, 0, 0.65);
+  -webkit-animation: antdDrawerFadeIn 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
+  animation: antdDrawerFadeIn 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
+}
+
+.animated.slowest {
+  -webkit-animation-duration: 6s;
+  animation-duration: 6s;
+}
+
+.downArrow {
+  position: absolute;
+  height: 36px;
+  width: 56px;
+  background: "../img/downArrow.png" center center no-repeat;
+  background-size: contain;
+  bottom: 20px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  opacity: .6;
+}

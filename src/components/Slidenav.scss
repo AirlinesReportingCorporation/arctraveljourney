@@ -1,0 +1,110 @@
+.slideControls {
+  position: fixed;
+  top: 520px;
+  right: 40px;
+}
+
+.navBtn {
+  background: rgba(0,0,0, .5);
+  padding: 20px;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
+  height: 85px;
+  width: 85px;
+  margin-bottom: 40px;
+}
+
+.arcBtn {
+  position: fixed;
+  top: 390px;
+  right: 40px;
+  background: #f47323;
+  padding: 20px 13px;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
+  height: 85px;
+  width: 85px;
+  margin-bottom: 40px;
+}
+
+.slideBtnContainer {
+  background: rgba(0,0,0, .5);
+  padding: 20px;
+  border: 4px solid #ffffff;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
+  height: 170px;
+  width: 85px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.slideArrow {
+  height: 85px;
+  cursor: pointer;
+
+  &.slideArrow1 {
+    img {
+      transform: rotate(270deg);
+    };
+  }
+
+  &.slideArrow2 {
+    img {
+      transform: rotate(90deg);
+    };
+  }
+
+  &.slideArrow3 {
+    img {
+      transform: rotate(180deg);
+    };
+  }
+
+  &.slideArrow4 {
+    img {};
+  }
+}
+
+.arctake.ant-drawer {
+  .ant-drawer-wrapper-body {
+    background: #189bb0;
+  }
+
+  .ant-drawer-content {
+    background: #189bb0;
+  }
+
+  .infoDrawer {
+    img.closeIcon {
+      border-color: #189bb0;
+    }
+
+    img.homepageLogo {
+      position: relative;
+      border: none;
+      top: auto;
+      left: auto;
+      border-radius: 0;
+      padding-bottom: 40px;
+    }
+  }
+
+  h1 {
+    color: #ffffff;
+    padding-bottom: 80px;
+    font-size: 100px;
+    line-height: 110px;
+    margin-bottom: 0;
+  }
+
+  p {
+    color: #ffffff;
+  }
+
+  strong {
+    font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
+  }
+}

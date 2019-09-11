@@ -1,0 +1,30 @@
+@import '../partials/colors';
+
+.navigationPane {
+  padding-top: 200px;
+  padding-left: 120px;
+  font-family: SourceSansPro-Bold, helvetica, arial, sans-serif;
+  position: relative;
+  width: 1080px;
+
+  .navigationLink {
+    margin-bottom: 60px;
+
+    a {
+      color: #000000;
+      font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
+      font-size: 90px;
+      line-height: 0.7;
+
+      &:active, &:hover {
+        color: #2dc1f1;
+      }
+    }
+
+    .navStep {
+      font-family: SourceSansPro-Regular, SourceSansPro-Light, SourceSansPro-Regular, helvetica, arial, sans-serif;
+      font-weight: 300;
+      font-size: 36px;
+    }
+  }
+}

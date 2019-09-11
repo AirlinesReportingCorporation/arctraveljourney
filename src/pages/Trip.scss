@@ -1,0 +1,288 @@
+@import 'Pagepane';
+
+.tripPage.pagePaneContainer {
+  .titleSlide .pagePaneContent {
+    .section1 {
+      background: $tripColor;
+
+      h1 {
+        background: #ffffff;
+        color: $tripColor;
+      }
+
+      .sep {
+        background: $tripColor;
+      }
+
+      img {
+        left: 40px;
+        bottom: -63px;
+      }
+    }
+
+    .section2 {
+      background: #ffffff;
+
+      p {
+        color: $tripColor;
+        padding-top: 100px;
+        margin-bottom: 50px;
+      }
+
+      button {
+        background: $tripColor;
+      }
+    }
+  }
+
+  .bulletSlide {}
+
+  .quoteSlide {}
+
+  .todayTomorrowSlide {
+    &.tts2 {
+      h2 {
+        font-size: 65px;
+        line-height: 70px;
+      }
+    }
+
+    h2 {
+      padding-left: 120px;
+      padding-right: 160px;
+    }
+  }
+
+  .endSlide {
+    background: url("../img/TripEND.jpg") top center no-repeat;
+    background-size: contain;
+
+    h2 {
+      font-size: 45px;
+      line-height: 55px;
+    }
+
+    button {
+      background: $outcomeColor;
+    }
+  }
+
+  .blueSlide {
+    background: url("../img/TripBLUE.jpg") center center no-repeat;
+    background-size: contain;
+
+    h2 {
+      font-size: 70px;
+      line-height: 80px;
+      color: #ffffff;
+      margin-top: 300px;
+      padding-right: 100px;
+    }
+  }
+
+  .textSlide {
+    height: 1920px;
+    overflow: hidden;
+
+    .textSlideContent {
+      font-size: 90px;
+      line-height: 100px;
+      padding-top: 120px;
+    }
+  }
+
+  .customTripSlide {
+    background: #ffffff;
+    height: 100%;
+    padding: 120px 80px;
+    color: #000000;
+
+    .customTripSlideSub {
+      color: #000000;
+      font-size: 72px;
+      line-height: 100px;
+      font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
+    }
+
+    h1 {
+      color: #000000;
+      font-size: 100px;
+      line-height: 110px;
+    }
+
+    p {
+      font-family: SourceSansPro-Regular, helvetica, arial, sans-serif;
+      font-size: 70px;
+      line-height: 80px;
+      margin-bottom: 80px;
+      margin-top: 80px;
+      padding-right: 80px;
+    }
+
+    .stepOrderContainer {
+      padding-top: 80px;
+    }
+
+    .stepOrder {
+      background: #1a9bd1;
+      background: -webkit-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
+      background: -o-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
+      background: -moz-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
+      background: linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
+      padding: 80px 60px;
+      box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
+      font-size: 36px;
+      margin-bottom: 40px;
+      position: relative;
+      font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
+
+      img {
+        position: absolute;
+        right: 80px;
+        top: 60px;
+      }
+
+      strong {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.infoDrawer {
+  .tableContainer {
+    background: #ffffff;
+    padding: 10px 0;
+  }
+
+  .tableHalf {
+    width: 350px;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 40px;
+  }
+
+  .tableLong {
+    table tr td {
+      padding: 10px;
+    }
+  }
+
+  .tableBundles {
+    table {
+      width: 800px;
+    }
+
+    table tr td {
+      padding: 10px;
+    }
+  }
+
+  table {
+    width: 300px;
+    font-size: 26px;
+    line-height: 28px;
+    font-family: SourceSansPro-SemiBold, SourceSansPro-Regular, arial , sans-serif;
+
+    img {
+      position: relative;
+      top: auto;
+      left: auto;
+      width: 39px;
+      max-width: 39px;
+      border: none;
+      border-radius: 0;
+    }
+
+    tr {
+      background: none !important;
+
+      td {
+        padding: 15px 10px;
+      }
+    }
+  }
+}
+
+.tripDrawer.ant-drawer {
+  .ant-drawer-wrapper-body {
+    background: #ffffff;
+  }
+
+  .infoDrawer {
+    .bundlesP {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    .bottomP {
+      font-size: 35px;
+      line-height: 45px;
+    }
+
+    img.chartIMG {
+      border-radius: 0;
+      position: relative;
+      border: none;
+      top: auto;
+      left: auto;
+      padding-top: 120px;
+    }
+
+    img.closeIcon {
+      border-color: #ffffff;
+    }
+  }
+
+  .order,
+  .payment,
+  .settlement {
+    font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
+    font-size: 100px;
+    line-height: 110px;
+    padding-bottom: 40px;
+  }
+}
+
+.blueDrawer.blueDrawerTrip.ant-drawer {
+  h2 {
+    font-size: 60px;
+    font-family: SourceSansPro-Black, arial, sans-serif;
+    margin-top: 200px;
+    margin-bottom: 0;
+  }
+
+  .blueList,
+  ul,
+  ul li {
+    color: #000000;
+    font-family: SourceSansPro-Regular, arial, sans-serif;
+    font-size: 35px;
+  }
+
+  p.roadSource {
+    font-size: 25px;
+    line-height: 30px;
+  }
+}
+
+.ant-modal-content {
+  .ant-modal-body {
+    padding: 80px;
+  }
+
+  .ant-modal-footer {
+    display: none;
+  }
+
+  h2 {
+    font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
+    font-size: 65px;
+  }
+
+  p {
+    font-size: 40px;
+    line-height: 50px;
+    font-family: SourceSansPro-Regular, helvetica, arial, sans-serif;
+  }
+}

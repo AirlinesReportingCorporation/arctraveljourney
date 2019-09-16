@@ -1,23 +1,59 @@
 @import 'Pagepane';
-$screenWidth: 100vw;
+$screenWidth: 1550px;
 
 .sliderContainer {
-  width: $screenWidth;
-  min-width: 480px;
-  overflow: hidden;
+  //width: 100vw;
+  //min-width: 480px;
+  //overflow: hidden;
+  width: 100%;
 }
 
 .startPage.pagePaneContainer {
-  width: $screenWidth * 12;
+  //width: $screenWidth * 20;
+  height: 100vh;
   min-height: 850px;
   touch-action: none;
   transition: transform 300ms linear;
   overflow: hidden;
 
+  .slide1-container {
+    margin: 150px 0;
+  }
+
+  .slide1-title {
+    width: 50%;
+  }
+
+  .slide1-arrow {
+    margin-bottom: 25%;
+  }
+
+  .slide1-logo {
+
+  }
+
+  .slide1-subtitle {
+    position: absolute;
+    top: 10%;
+    font-family: "Amatic SC", helvetica, arial, sans-serif;
+    font-size: 4rem;
+    color: #a7a9ac;
+  }
+
+  .simplebar-wrapper {
+    height: auto;
+  }
+
+  .slide1-title {
+    font-size: 150px;
+    padding-top: 40px;
+    color: #414042;
+    text-align: left;
+    line-height: 0.8;
+  }
+
   .pageSlide {
-    display: inline-block;
-    width: auto;
-    max-width: $screenWidth;
+    //display: inline-block;
     height: 100vh;
     max-height: 100vh;
     min-height: 850px;
@@ -54,16 +90,26 @@ $screenWidth: 100vw;
     //background-size: cover;
     display: grid;
     align-items: center;
-    text-align: center;
-    padding: 0 120px 0 40px;
-    width:
+    padding: 0 40px;
+
+    .slide1-title {
+      position: relative;
+    }
+
+    .slide1-subtitle {
+      position: absolute;
+      top: 80px;
+      font-family: "Amatic SC", helvetica, arial, sans-serif;
+      font-size: 4rem;
+      color: #a7a9ac;
+    }
 
     h1 {
       font-size: 150px;
       padding-top: 40px;
       color: #414042;
       text-align: left;
-      line-height: .8;
+      line-height: 0.8;
     }
 
     p {
@@ -77,9 +123,11 @@ $screenWidth: 100vw;
     }
 
     .startPageArrow {
+      display: block;
+      position: absolute;
       vertical-align: top;
-      padding-left: 40px;
-      padding-top: 95px;
+      left: 280px;
+      top: -80px;
     }
 
     .homepageLogo {
@@ -398,6 +446,7 @@ $screenWidth: 100vw;
     background: url("https://www2.arccorp.com/globalassets/traveljourney/img/THEEND.jpg") center center no-repeat;
     background-size: cover;
     padding: 220px 160px 0 120px;
+    max-width: 1350px;
 
     h2 {
       font-size: 110px;

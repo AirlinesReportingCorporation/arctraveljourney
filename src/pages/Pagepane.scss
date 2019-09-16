@@ -1,15 +1,49 @@
 @import '../partials/colors';
 
+$screenWidth: 1550px;
+
 .pagePaneContainer {
+
+  
+
+  .mainImage {
+    max-width: 600px;
+    z-index: 30;
+    margin: 0 auto;
+  }
+
+  .backImage {
+    width: auto;
+    display: block;
+    position: absolute;
+    z-index: 29;
+  }
+
+  .backImage1 {
+    top: 40%;
+  }
+
+  .backImage2 {
+    top: 40%;
+    right: 80px;
+  }
+
+  .backImageWords {
+    top: 120px;
+    left: 0px;
+
+  }
+
   .titleSlide {
     background: #ffffff;
     height: 100%;
-    width: 100vw;
-    min-width: 1440px;
+    width: $screenWidth;
+    max-width: $screenWidth;
 
     .pagePaneContent {
-      background: $inspireColor;
+      background: #ffffff;
       height: 100%;
+      padding-right: 160px;
 
       .section1 {
         position: relative;
@@ -17,7 +51,7 @@
         height: 100vh;
 
         .stepNumber {
-          color: #ffffff;
+          color: #222222;
           font-family: "Amatic SC", helvetica, arial, sans-serif;
           font-size: 60px;
           margin-left: 160px;
@@ -27,17 +61,17 @@
 
         h1 {
           display: inline-block;
-          background: #ffffff;
-          color: $inspireColor;
+          color: #ffffff;
+          background: $inspireColor;
           margin-left: 80px;
           padding: 20px 80px;
-          font-size: 110px;
-          line-height: 110px;
+          font-size: 4rem;
+          line-height: 4rem;
           margin-bottom: 0;
         }
 
         .sep {
-          background: #ffffff;
+          background: $inspireColor;
           height: 8px;
           width: 80px;
           margin-left: 160px;
@@ -53,7 +87,7 @@
         }
 
         p {
-          color: #ffffff;
+          color: #222222;
           font-family: SourceSansPro-Semibold, helvetica, arial, sans-serif;
           margin-left: 160px;
           font-size: 50px;
@@ -61,6 +95,8 @@
       }
 
       .section2 {
+        display: grid;
+        align-items: center;
         height: 100%;
         text-align: center;
         background: #ffffff;
@@ -70,6 +106,8 @@
           width: 100%;
           max-width: 100%;
         }
+
+
 
         p {
           color: $inspireColor;

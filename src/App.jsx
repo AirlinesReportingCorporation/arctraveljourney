@@ -1,3 +1,4 @@
+import 'react-app-polyfill/ie11';
 import React, {Component} from "react";
 import {MemoryRouter as Router, Route, Link} from "react-router-dom";
 import {withRouter} from "react-router";
@@ -96,7 +97,6 @@ class App extends Component {
           <span>{this.state.slideDirection}</span>
         </div>
         <div>
-          <AnimatedSwitch {...pageTransitions} mapStyles={mapStyles} className="switch-wrapper">
             <Route path="/" exact render={(props) => <Startpage {...props} routeUpdate={this.getRoute}/>}/>
             <Route path="/navigation/" render={(props) => <Navigation {...props} routeUpdate={this.getRoute}/>}/>
             <Route path="/inspire/" render={(props) => <Inspire {...props} routeUpdate={this.getRoute}/>}/>
@@ -106,9 +106,8 @@ class App extends Component {
             <Route path="/pretrip/" render={(props) => <Pretrip {...props} routeUpdate={this.getRoute}/>}/>
             <Route path="/trip/" render={(props) => <Trip {...props} routeUpdate={this.getRoute}/>}/>
             <Route path="/outcome/" render={(props) => <Outcome {...props} routeUpdate={this.getRoute}/>}/>
-          </AnimatedSwitch>
 
-          
+
 
         </div>
 

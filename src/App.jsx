@@ -96,7 +96,7 @@ class App extends Component {
           Slide Dir:
           <span>{this.state.slideDirection}</span>
         </div>
-        <div>
+        <div className="pageWrapper">
             <Route path="/" exact render={(props) => <Startpage {...props} routeUpdate={this.getRoute}/>}/>
             <Route path="/navigation/" render={(props) => <Navigation {...props} routeUpdate={this.getRoute}/>}/>
             <Route path="/inspire/" render={(props) => <Inspire {...props} routeUpdate={this.getRoute}/>}/>

@@ -1,5 +1,7 @@
-import React, {Component} from "react";
-import ReactDOM from "react-dom";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {useSpring, animated} from 'react-spring';
+
 import {Drawer, Button} from 'antd';
 import {useSwipeable, Swipeable} from 'react-swipeable'
 import {withRouter} from 'react-router-dom';
@@ -9,10 +11,23 @@ import Slider from '../components/Slider.jsx';
 import Pageslide from '../components/Pageslide.jsx';
 import Customlink from '../components/Customlink.jsx';
 
-import {Parallax, ParallaxLayer} from 'react-spring/renderprops-addons';
+const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
+const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
+const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 230}px,0)`
+const trans3 = (x, y) => `translate3d(${x / 6 - 250}px,${y / 6 - 200}px,0)`
+const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`
 
-import SimpleBar from 'simplebar';
-import 'simplebar/dist/simplebar.css';
+function Card() {
+  const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
+  return (
+    <div class="animationContainer" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+      <animated.div className="card1" style={{ transform: props.xy.interpolate(trans1) }} />
+      <animated.div className="card2" style={{ transform: props.xy.interpolate(trans2) }} />
+      <animated.div className="card3" style={{ transform: props.xy.interpolate(trans3) }} />
+      <animated.div className="card4" style={{ transform: props.xy.interpolate(trans4) }} />
+    </div>
+  )
+}
 
 class Startpage extends React.Component {
   constructor(props) {
@@ -20,7 +35,8 @@ class Startpage extends React.Component {
     this.state = {
       visible: false,
       scrollPos: 0,
-      paneWidth: "900vw"
+      paneWidth: "900vw",
+      xy: [0, 0]
     };
 
     this.showDrawer = this.showDrawer.bind(this);
@@ -58,6 +74,7 @@ class Startpage extends React.Component {
     var fscrollPos = 0;
 
     var el = document.querySelector('.startPage').getBoundingClientRect();
+    var container = document.querySelector('.startPage');
     var width = el.width;
     var windowWidth = window.innerWidth;
 
@@ -66,7 +83,7 @@ class Startpage extends React.Component {
 
     var delta = this.state.scrollPos + (e.deltaY * 2);
 
-    window.scrollTo(e.deltaY, 0);
+    container.scrollTo(e.deltaY, 0);
 
     var diff = (scrollLeft + delta);
 
@@ -93,19 +110,20 @@ class Startpage extends React.Component {
   componentDidMount() {
     this.props.routeUpdate(this.props.location.pathname);
 
-    window.addEventListener('wheel', function(e) {
+    /*window.addEventListener('wheel', function(e) {
       e.preventDefault();
-    }, {passive: false});
+    }, {passive: false});*/
 
-    document.querySelector('div > .startPage  ').addEventListener('wheel', function(e) {
-      document.querySelector('div > .startPage  ').scrollBy(e.deltaY, 0, "smooth");
+    document.querySelector('.startPage').addEventListener('wheel', function(e) {
+      console.log("test");
+      document.querySelector('.pageWrapper').scrollBy(e.deltaY, 0, "smooth");
     }, {passive: true});
 
     var windowXpos = document.querySelector('.startPage').scrollLeft;
 
     var totalWidth = 0;
 
-    var children = document.querySelectorAll('.pageSlide');
+    var children = document.querySelectorAll('.horizontalSlide');
 
     for (var i = 0; i < children.length; i++) {
       totalWidth += children[i].getBoundingClientRect().width;
@@ -119,16 +137,16 @@ class Startpage extends React.Component {
   }
 
   componentDidUpate() {
-    /*var totalWidth = 0;
+    var totalWidth = 0;
 
-    var children = document.querySelectorAll('.pageSlide');
+    var children = document.querySelectorAll('.horizontalSlide');
 
     for (var i = 0; i < children.length; i++) {
       totalWidth += children[i].getBoundingClientRect().width;
       console.log(i + ":" + children[i].getBoundingClientRect().width);
     }
 
-    this.setState({paneWidth: totalWidth});*/
+    this.setState({paneWidth: totalWidth});
   }
 
   showDrawer() {
@@ -147,281 +165,28 @@ class Startpage extends React.Component {
   scrollHandler(e) {}
 
   render() {
-
-    let marginl = 0;
-    var anchor = this.props.location.anchor;
-    var slideWidth = -1080;
-    var n = 4;
-    switch (anchor) {
-      case "inspire":
-        marginl = n * slideWidth;
-        break;
-      case "shop":
-        marginl = (n + 1) * slideWidth;
-        break;
-      case "offer":
-        marginl = (n + 2) * slideWidth;
-        break;
-      case "purchase":
-        marginl = (n + 3) * slideWidth;
-        break;
-      case "pretrip":
-        marginl = (n + 4) * slideWidth;
-        break;
-      case "trip":
-        marginl = (n + 5) * slideWidth;
-        break;
-      case "outcome":
-        marginl = (n + 6) * slideWidth;
-        break;
-      case "wrapup":
-        marginl = (n + 7) * slideWidth;
-        break;
-      default:
-        // code block
-    }
     //onWheel={(e) => this.wheel(e)}
-    return (<Parallax className="startPage pagePaneContainer" horizontal="horizontal" ref={ref => (this.parallax = ref)} pages={9} onWheel={(e) => this.wheel(e)}>
+    return (<div className="startPage pagePaneContainer" style={{
+        "width" : this.state.paneWidth
+      }} horizontal="horizontal" pages={9}>
 
-      <ParallaxLayer offset={.25} speed={.5}>
-        <h2 className="slide1-subtitle">Explore</h2>
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={0} speed={0}>
-        <img className="slide1-logo" src="https://www2.arccorp.com/globalassets/traveljourney/img/homepage_logo.png" alt=""/>
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={.25} speed={1} style={{
-          display: 'flex',
-          alignItems: 'center'
-        }}>
-        <h1 className="slide1-title animated slideInLeft delay-1s">The
-          <br/>Travel
-          <br/>Journey</h1>
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={.5} speed={.8} style={{
-          display: 'flex',
-          alignItems: 'center'
-        }}>
-        <img className="slide1-arrow" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/slide1-plane.png" alt=""/>
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={.7} speed={.18} style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-        <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-back1.png" alt="" className="backImage backImage1"/>
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={.6} speed={.3} style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-        <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-back2.png" alt="" className="backImage backImage2"/>
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={.95} speed={.15} style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-        <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-backWords.png" alt="" className="backImage backImageWords"/>
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={.7} speed={.1} style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-        <img className="mainImage" src="https://www2.arccorp.com/globalassets/traveljourney/img/inspire1.png"/>
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={2} speed={.5}>
-        <Pageslide noArrow="false">
-          <div className=" verticalSlide titleSlide">
-            <div className="pagePaneContent">
-              <div className="row no-gutters">
-                <div className="col-12">
-                  <div className="section1">
-                    <div className="stepNumber">Step 1</div>
-                    <h1>Inspire.</h1>
-                    <div className="sep"></div>
-                    <p>The traveler is inspired
-                      <br/>to take a trip.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div className="horizontalSlide horizontalSlide1">
+        <div className="row">
+          <div className="col-md-12">
+            <Card />
           </div>
-        </Pageslide>
-      </ParallaxLayer>
-      <ParallaxLayer offset={3.8} speed={.5}>
-        <Pageslide noArrow="false">
-          <div className="shopPage verticalSlide titleSlide">
-            <div className="pagePaneContent">
-              <div className="row no-gutters">
-                <div className="col-6">
-                  <div className="section1">
-                    <div className="stepNumber">Step 2a</div>
-                    <h1>Shop.</h1>
-                    <div className="sep"></div>
-                    <p>The traveler provides the
-                      <br/>parameters for their desired trip.</p>
+        </div>
+      </div>
 
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="section2">
-                    <img src="https://www2.arccorp.com/globalassets/traveljourney/img/Shop.png"/>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <div className="horizontalSlide horizontalSlide2">
+        <div className="row">
+          <div className="col-md-12">
+            asdf
           </div>
-        </Pageslide>
-      </ParallaxLayer>
-      <ParallaxLayer offset={2.8} speed={.5}>
-        <Pageslide noArrow="false">
-          <div className="offerPage verticalSlide titleSlide">
-            <div className="pagePaneContent">
-              <div className="row no-gutters">
-                <div className="col-6">
-                  <div className="section1">
-                    <div className="stepNumber">Step 2b</div>
-                    <h1>Offer.</h1>
-                    <div className="sep"></div>
-                    <p>After the traveler searches for a flight,
-                      <br/>they recieve a variety of offers.</p>
+        </div>
+      </div>
 
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="section2">
-                    <img src="https://www2.arccorp.com/globalassets/traveljourney/img/Offer.png"/>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </Pageslide>
-      </ParallaxLayer>
-      <ParallaxLayer offset={3.8} speed={.5}>
-        <Pageslide noArrow="false">
-          <div className="purchasePage verticalSlide titleSlide">
-            <div className="pagePaneContent">
-              <div className="row no-gutters">
-                <div className="col-6">
-                  <div className="section1">
-                    <div className="stepNumber">Step 3</div>
-                    <h1>Purchase.</h1>
-                    <div className="sep"></div>
-                    <p>The traveler purchases their airline tickets
-                      <br/>(through a process that’s more complex than you might expect).</p>
-
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="section2">
-                    <img src="https://www2.arccorp.com/globalassets/traveljourney/img/Purchase.png"/>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </Pageslide>
-      </ParallaxLayer>
-      <ParallaxLayer offset={4.8} speed={.5}>
-        <Pageslide noArrow="false">
-          <div className="pretripPage verticalSlide titleSlide">
-            <div className="pagePaneContent">
-              <div className="row no-gutters">
-                <div className="col-6">
-                  <div className="section1">
-                    <div className="stepNumber">Step 4</div>
-                    <h1>Pre-Trip.</h1>
-                    <div className="sep"></div>
-                    <p>The traveler actively prepares
-                      <br/>for their trip.</p>
-
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="section2">
-                    <img src="https://www2.arccorp.com/globalassets/traveljourney/img/Pretrip.png"/>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </Pageslide>
-      </ParallaxLayer>
-      <ParallaxLayer offset={5.8} speed={.5}>
-        <Pageslide noArrow="false">
-          <div className="tripPage verticalSlide titleSlide">
-            <div className="pagePaneContent">
-              <div className="row no-gutters">
-                <div className="col-6">
-                  <div className="section1">
-                    <div className="stepNumber">Step 5</div>
-                    <h1>Trip.</h1>
-                    <div className="sep"></div>
-                    <p>The traveler embarks on their journey.
-                    </p>
-
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="section2">
-                    <img src="https://www2.arccorp.com/globalassets/traveljourney/img/Trip.png"/>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </Pageslide>
-      </ParallaxLayer>
-      <ParallaxLayer offset={6.8} speed={.5}>
-        <Pageslide noArrow="false">
-          <div className="outcomePage verticalSlide titleSlide">
-            <div className="pagePaneContent">
-              <div className="row no-gutters">
-                <div className="col-6">
-                  <div className="section1">
-                    <div className="stepNumber">Step 6</div>
-                    <h1>Outcome.</h1>
-                    <div className="sep"></div>
-                    <p>The traveler's experience — positive, neutral or negative — informs their own future decisions, as well as those of friends, family, colleagues and social media connections with whom they share their experiences.</p>
-
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="section2">
-                    <img src="https://www2.arccorp.com/globalassets/traveljourney/img/Outcome.png"/>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </Pageslide>
-      </ParallaxLayer>
-      <ParallaxLayer offset={8} speed={1}>
-        <Pageslide noArrow="false">
-          <div className="textSlide verticalSlide wrapupSlide">
-            <h2>The Journey Continues.</h2>
-            <p>The travel journey repeats with every trip and travel experience. Travel brands can build momentum &mdash; and loyalty &mdash; by continuously advancing their offerings and delivering even better customer experiences.</p>
-            <div className="wrapupArrow"></div>
-          </div>
-        </Pageslide>
-      </ParallaxLayer>
-    </Parallax>);
+    </div>);
   }
 }
 

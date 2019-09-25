@@ -41,7 +41,9 @@ module.exports = [{
   resolve: {
     alias: {
       'vue': 'vue/dist/vue.js',
-      'react-dom': '@hot-loader/react-dom'
+      'react-dom': '@hot-loader/react-dom',
+      'react-spring$': 'react-spring/web.cjs',
+      'react-spring/renderprops$': 'react-spring/renderprops.cjs'
     },
     extensions: ['*', '.js', '.jsx'],
 

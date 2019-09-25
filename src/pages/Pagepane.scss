@@ -1,37 +1,8 @@
-@import '../partials/colors';
+@import "../partials/colors";
 
 $screenWidth: 1550px;
 
 .pagePaneContainer {
-
-  .mainImage {
-    max-width: 600px;
-    z-index: 30;
-    margin: 0 auto;
-  }
-
-  .backImage {
-    width: auto;
-    display: block;
-    position: absolute;
-    z-index: 29;
-  }
-
-  .backImage1 {
-    top: 40%;
-  }
-
-  .backImage2 {
-    top: 40%;
-    right: 80px;
-  }
-
-  .backImageWords {
-    top: 120px;
-    left: 0px;
-
-  }
-
   .titleSlide {
     background: #ffffff;
     height: 100%;
@@ -105,8 +76,6 @@ $screenWidth: 1550px;
           max-width: 100%;
         }
 
-
-
         p {
           color: $inspireColor;
           text-align: center;
@@ -119,36 +88,59 @@ $screenWidth: 1550px;
   }
 
   .bulletSlide {
-    padding: 160px 0;
-    width: 1080px;
-    overflow: hidden;
+    padding: 40px 40px;
+    width: 100%;
 
     h1 {
-      margin-left: 120px;
-      font-size: 110px;
+      font-size: 4rem;
     }
   }
 
   .quoteSlide {
-    padding-top: 120px;
+    padding: 80px 40px;
     height: 100%;
     background: #02e3a8;
-    background: -webkit-linear-gradient(to bottom left, #02e3a8 25%, #78e283 50%, #a3e175 75%);
-    background: -o-linear-gradient(to bottom left, #02e3a8 25%, #78e283 50%, #a3e175 75%);
-    background: -moz-linear-gradient(to bottom left, #02e3a8 25%, #78e283 50%, #a3e175 75%);
-    background: linear-gradient(to bottom left, #02e3a8 25%, #78e283 50%, #a3e175 75%);
+    background: -webkit-linear-gradient(
+      to bottom left,
+      #02e3a8 25%,
+      #78e283 50%,
+      #a3e175 75%
+    );
+    background: -o-linear-gradient(
+      to bottom left,
+      #02e3a8 25%,
+      #78e283 50%,
+      #a3e175 75%
+    );
+    background: -moz-linear-gradient(
+      to bottom left,
+      #02e3a8 25%,
+      #78e283 50%,
+      #a3e175 75%
+    );
+    background: linear-gradient(
+      to bottom left,
+      #02e3a8 25%,
+      #78e283 50%,
+      #a3e175 75%
+    );
 
     .quotePhoto {
-      margin-left: 120px;
-      padding: 80px 0 0 50px;
+      margin-left: 40px;
+      padding: 20px 0 0 50px;
       position: relative;
 
+      img {
+        width: 200px;
+      }
+
       &:before {
-        background: url("https://www2.arccorp.com/globalassets/traveljourney/img/quote.png?1") center center no-repeat;
+        background: url("https://www2.arccorp.com/globalassets/traveljourney/img/quote.png?1")
+          center center no-repeat;
         background-size: contain;
-        content: '';
-        height: 170px;
-        width: 170px;
+        content: "";
+        height: 80px;
+        width: 80px;
         z-index: 3;
         position: absolute;
         top: 0;
@@ -158,69 +150,166 @@ $screenWidth: 1550px;
 
     .quoteText {
       color: #ffffff;
-      margin-left: 160px;
-      margin-top: 80px;
-      padding-right: 120px;
+      padding: 20px;
       font-family: SourceSansPro-Regular, helvetica, arial, sans-serif;
-      font-size: 64px;
-      line-height: 80px;
+      font-size: 2.5rem;
+      line-height: 1;
     }
 
     .quoteMetaSeperate {
       color: #ffffff;
       padding-top: 20px;
-      margin-left: 80px;
+      margin-left: 100px;
       font-family: SourceSansPro-Semibold, helvetica, arial, sans-serif;
       font-size: 36px;
     }
 
     .quoteMeta {
       color: #ffffff;
-      padding-top: 80px;
-      margin-left: 160px;
+      padding-top: 20px;
+      margin-left: 60px;
       font-family: SourceSansPro-Semibold, helvetica, arial, sans-serif;
-      font-size: 36px;
+      font-size: 1.2rem;
     }
   }
 
   .textSlide {
-    height: 100%;
     background: #00e3a8;
-    background: -webkit-linear-gradient(to bottom, #00e3a8 25%, #66e288 50%, #a1e176 75%);
-    background: -o-linear-gradient(to bottom, #00e3a8 25%, #66e288 50%, #a1e176 75%);
-    background: -moz-linear-gradient(to bottom, #00e3a8 25%, #66e288 50%, #a1e176 75%);
-    background: linear-gradient(to bottom, #00e3a8 25%, #66e288 50%, #a1e176 75%);
+    background: -webkit-linear-gradient(
+      to bottom,
+      #00e3a8 25%,
+      #66e288 50%,
+      #a1e176 75%
+    );
+    background: -o-linear-gradient(
+      to bottom,
+      #00e3a8 25%,
+      #66e288 50%,
+      #a1e176 75%
+    );
+    background: -moz-linear-gradient(
+      to bottom,
+      #00e3a8 25%,
+      #66e288 50%,
+      #a1e176 75%
+    );
+    background: linear-gradient(
+      to bottom,
+      #00e3a8 25%,
+      #66e288 50%,
+      #a1e176 75%
+    );
 
     &.GradientDarkblue {
       background: #0c537c;
-      background: -webkit-linear-gradient(to bottom, #0c537c 25%, #0a6e8b 50%, #05aaae 75%);
-      background: -o-linear-gradient(to bottom, #0c537c 25%, #0a6e8b 50%, #05aaae 75%);
-      background: -moz-linear-gradient(to bottom, #0c537c 25%, #0a6e8b 50%, #05aaae 75%);
-      background: linear-gradient(to bottom, #0c537c 25%, #0a6e8b 50%, #05aaae 75%);
+      background: -webkit-linear-gradient(
+        to bottom,
+        #0c537c 25%,
+        #0a6e8b 50%,
+        #05aaae 75%
+      );
+      background: -o-linear-gradient(
+        to bottom,
+        #0c537c 25%,
+        #0a6e8b 50%,
+        #05aaae 75%
+      );
+      background: -moz-linear-gradient(
+        to bottom,
+        #0c537c 25%,
+        #0a6e8b 50%,
+        #05aaae 75%
+      );
+      background: linear-gradient(
+        to bottom,
+        #0c537c 25%,
+        #0a6e8b 50%,
+        #05aaae 75%
+      );
     }
 
     &.GradientBlue {
       background: #1a9bd1;
-      background: -webkit-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-      background: -o-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-      background: -moz-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-      background: linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
+      background: -webkit-linear-gradient(
+        to bottom,
+        #1a9bd1 25%,
+        #26b4e6 50%,
+        #2cc1f1 75%
+      );
+      background: -o-linear-gradient(
+        to bottom,
+        #1a9bd1 25%,
+        #26b4e6 50%,
+        #2cc1f1 75%
+      );
+      background: -moz-linear-gradient(
+        to bottom,
+        #1a9bd1 25%,
+        #26b4e6 50%,
+        #2cc1f1 75%
+      );
+      background: linear-gradient(
+        to bottom,
+        #1a9bd1 25%,
+        #26b4e6 50%,
+        #2cc1f1 75%
+      );
     }
 
     &.GradientGreen {
       background: #1a9bd1;
-      background: -webkit-linear-gradient(to bottom, #02e3a7 25%, #6de286 50%, #a3e175 75%);
-      background: -o-linear-gradient(to bottom, #02e3a7 25%, #6de286 50%, #a3e175 75%);
-      background: -moz-linear-gradient(to bottom, #02e3a7 25%, #6de286 50%, #a3e175 75%);
-      background: linear-gradient(to bottom, #02e3a7 25%, #6de286 50%, #a3e175 75%);
+      background: -webkit-linear-gradient(
+        to bottom,
+        #02e3a7 25%,
+        #6de286 50%,
+        #a3e175 75%
+      );
+      background: -o-linear-gradient(
+        to bottom,
+        #02e3a7 25%,
+        #6de286 50%,
+        #a3e175 75%
+      );
+      background: -moz-linear-gradient(
+        to bottom,
+        #02e3a7 25%,
+        #6de286 50%,
+        #a3e175 75%
+      );
+      background: linear-gradient(
+        to bottom,
+        #02e3a7 25%,
+        #6de286 50%,
+        #a3e175 75%
+      );
     }
 
     &.GradientPurple {
       background: #1a9bd1;
-      background: -webkit-linear-gradient(to bottom, #e24cac 25%, #e86690 50%, #f4965d 75%);
-      background: -o-linear-gradient(to bottom, #e24cac 25%, #e86690 50%, #f4965d 75%);
-      background: -moz-linear-gradient(to bottom, #e24cac 25%, #e86690 50%, #f4965d 75%);
-      background: linear-gradient(to bottom, #e24cac 25%, #e86690 50%, #f4965d 75%);
+      background: -webkit-linear-gradient(
+        to bottom,
+        #e24cac 25%,
+        #e86690 50%,
+        #f4965d 75%
+      );
+      background: -o-linear-gradient(
+        to bottom,
+        #e24cac 25%,
+        #e86690 50%,
+        #f4965d 75%
+      );
+      background: -moz-linear-gradient(
+        to bottom,
+        #e24cac 25%,
+        #e86690 50%,
+        #f4965d 75%
+      );
+      background: linear-gradient(
+        to bottom,
+        #e24cac 25%,
+        #e86690 50%,
+        #f4965d 75%
+      );
     }
 
     img {
@@ -231,21 +320,27 @@ $screenWidth: 1550px;
     }
 
     .textSlideContent {
-      padding-right: 200px;
-      padding-left: 120px;
       color: #ffffff;
-      font-size: 64px;
-      line-height: 80px;
+      padding: 40px;
+      font-size: 1.5rem;
+      line-height: 1;
 
       span {
-        font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
+        font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+        font-weight: 900;
         text-decoration: underline;
       }
     }
   }
 
-  .owl-carousel {
-    padding: 40px 0;
+  .sliderTopContainer {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .owl-carousel,
+  .sliderTopContainer {
+    padding: 40px;
 
     .swipeLeft {
       text-transform: uppercase;
@@ -287,15 +382,21 @@ $screenWidth: 1550px;
 
     .sliderContent {
       box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
-      height: 720px;
-      width: 720px;
+      height: 500px;
+      width: auto;
       text-align: center;
+      margin-bottom: 40px;
 
       h2 {
         color: #ffffff;
-        padding-top: 80px;
-        font-size: 64px;
-        line-height: 70px;
+        padding-top: 20px;
+        font-size: 2.5rem;
+        line-height: 1;
+      }
+
+      img {
+        height: 250px;
+        margin-top: 40px;
       }
 
       .touchText {
@@ -304,18 +405,18 @@ $screenWidth: 1550px;
         bottom: 40px;
         text-transform: uppercase;
         font-family: SourceSansPro-Bold, helvetica, arial, sans-serif;
-        font-size: 24px;
+        font-size: 1rem;
         text-align: center;
-        width: 720px;
+        width: 100%;
         color: #ffffff;
       }
 
       &.backSide {
         color: #ffffff;
         font-family: SourceSansPro-Semibold, helvetica, arial, sans-serif;
-        font-size: 32px;
-        line-height: 45px;
-        padding: 80px 120px 40px;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        padding: 25px;
         text-align: left;
       }
 
@@ -329,63 +430,146 @@ $screenWidth: 1550px;
 
       .touchBackBtn {
         display: inline-block;
-        padding: 30px;
-        font-size: 24px;
+        padding: 15px;
+        font-size: 1rem;
         text-transform: uppercase;
         border: 1px solid #ffffff;
-        background: rgba(0,0,0,.2);
+        background: rgba(0, 0, 0, 0.2);
         color: #ffffff;
       }
 
       &.slideTransparent {
-        background: rgba(0,0,0,.7);
+        background: rgba(0, 0, 0, 0.7);
       }
 
       &.sliderGradientDarkblue {
         background: #0c537c;
-        background: -webkit-linear-gradient(to bottom, #0c537c 25%, #0a6e8b 50%, #05aaae 75%);
-        background: -o-linear-gradient(to bottom, #0c537c 25%, #0a6e8b 50%, #05aaae 75%);
-        background: -moz-linear-gradient(to bottom, #0c537c 25%, #0a6e8b 50%, #05aaae 75%);
-        background: linear-gradient(to bottom, #0c537c 25%, #0a6e8b 50%, #05aaae 75%);
+        background: -webkit-linear-gradient(
+          to bottom,
+          #0c537c 25%,
+          #0a6e8b 50%,
+          #05aaae 75%
+        );
+        background: -o-linear-gradient(
+          to bottom,
+          #0c537c 25%,
+          #0a6e8b 50%,
+          #05aaae 75%
+        );
+        background: -moz-linear-gradient(
+          to bottom,
+          #0c537c 25%,
+          #0a6e8b 50%,
+          #05aaae 75%
+        );
+        background: linear-gradient(
+          to bottom,
+          #0c537c 25%,
+          #0a6e8b 50%,
+          #05aaae 75%
+        );
       }
 
       &.sliderGradientBlue {
         background: #1a9bd1;
-        background: -webkit-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-        background: -o-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-        background: -moz-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-        background: linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
+        background: -webkit-linear-gradient(
+          to bottom,
+          #1a9bd1 25%,
+          #26b4e6 50%,
+          #2cc1f1 75%
+        );
+        background: -o-linear-gradient(
+          to bottom,
+          #1a9bd1 25%,
+          #26b4e6 50%,
+          #2cc1f1 75%
+        );
+        background: -moz-linear-gradient(
+          to bottom,
+          #1a9bd1 25%,
+          #26b4e6 50%,
+          #2cc1f1 75%
+        );
+        background: linear-gradient(
+          to bottom,
+          #1a9bd1 25%,
+          #26b4e6 50%,
+          #2cc1f1 75%
+        );
       }
 
       &.sliderGradientGreen {
         background: #1a9bd1;
-        background: -webkit-linear-gradient(to bottom, #02e3a7 25%, #6de286 50%, #a3e175 75%);
-        background: -o-linear-gradient(to bottom, #02e3a7 25%, #6de286 50%, #a3e175 75%);
-        background: -moz-linear-gradient(to bottom, #02e3a7 25%, #6de286 50%, #a3e175 75%);
-        background: linear-gradient(to bottom, #02e3a7 25%, #6de286 50%, #a3e175 75%);
+        background: -webkit-linear-gradient(
+          to bottom,
+          #02e3a7 25%,
+          #6de286 50%,
+          #a3e175 75%
+        );
+        background: -o-linear-gradient(
+          to bottom,
+          #02e3a7 25%,
+          #6de286 50%,
+          #a3e175 75%
+        );
+        background: -moz-linear-gradient(
+          to bottom,
+          #02e3a7 25%,
+          #6de286 50%,
+          #a3e175 75%
+        );
+        background: linear-gradient(
+          to bottom,
+          #02e3a7 25%,
+          #6de286 50%,
+          #a3e175 75%
+        );
       }
 
       &.sliderGradientPurple {
         background: #1a9bd1;
-        background: -webkit-linear-gradient(to bottom, #e24cac 25%, #e86690 50%, #f4965d 75%);
-        background: -o-linear-gradient(to bottom, #e24cac 25%, #e86690 50%, #f4965d 75%);
-        background: -moz-linear-gradient(to bottom, #e24cac 25%, #e86690 50%, #f4965d 75%);
-        background: linear-gradient(to bottom, #e24cac 25%, #e86690 50%, #f4965d 75%);
+        background: -webkit-linear-gradient(
+          to bottom,
+          #e24cac 25%,
+          #e86690 50%,
+          #f4965d 75%
+        );
+        background: -o-linear-gradient(
+          to bottom,
+          #e24cac 25%,
+          #e86690 50%,
+          #f4965d 75%
+        );
+        background: -moz-linear-gradient(
+          to bottom,
+          #e24cac 25%,
+          #e86690 50%,
+          #f4965d 75%
+        );
+        background: linear-gradient(
+          to bottom,
+          #e24cac 25%,
+          #e86690 50%,
+          #f4965d 75%
+        );
       }
     }
   }
 
   .todayTomorrowSlide {
+
+    padding: 80px 40px;
+
     &.big {
       h2 {
         padding-bottom: 40px;
       }
 
       .todayTomorrowContainer {
-        height: 1280px;
+        height: auto;
 
         .todayTomorrowMain {
-          height: 920px;
+          height: auto;
         }
 
         .todayTomorrowMainTitle {
@@ -395,27 +579,47 @@ $screenWidth: 1550px;
     }
 
     h2 {
-      font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
-      font-size: 90px;
-      line-height: 90px;
+      font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      line-height: 1;
       text-align: center;
-      padding-top: 160px;
-      padding-bottom: 160px;
     }
 
     .todayTomorrowContainer {
-      height: 1040px;
+      height: 500px;
       padding: 0 80px;
       position: relative;
 
       .todayTomorrowMain {
-        height: 840px;
-        width: 100%;
+        height: 500px;
+        width: 540px;
+        margin: 0 auto;
         background: #1a9bd1;
-        background: -webkit-linear-gradient(to top right, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-        background: -o-linear-gradient(to top right, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-        background: -moz-linear-gradient(to top right, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-        background: linear-gradient(to top right, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
+        background: -webkit-linear-gradient(
+          to top right,
+          #1a9bd1 25%,
+          #26b4e6 50%,
+          #2cc1f1 75%
+        );
+        background: -o-linear-gradient(
+          to top right,
+          #1a9bd1 25%,
+          #26b4e6 50%,
+          #2cc1f1 75%
+        );
+        background: -moz-linear-gradient(
+          to top right,
+          #1a9bd1 25%,
+          #26b4e6 50%,
+          #2cc1f1 75%
+        );
+        background: linear-gradient(
+          to top right,
+          #1a9bd1 25%,
+          #26b4e6 50%,
+          #2cc1f1 75%
+        );
         text-align: center;
         padding-left: 80px;
         padding-right: 80px;
@@ -439,7 +643,7 @@ $screenWidth: 1550px;
 
       .todayTomorrowMainTitle {
         display: inline-block;
-        margin-top: 120px;
+        margin-top: 40px;
         color: #ffffff;
         border: 4px solid #ffffff;
         font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
@@ -447,24 +651,28 @@ $screenWidth: 1550px;
         padding: 20px 35px;
         margin-bottom: 40px;
         text-align: center;
-        font-size: 50px;
-        line-height: 54px;
+        font-size: 1.25rem;
+        line-height: 1;
         z-index: 5;
       }
 
       .todayTomorrowSecondary {
-        background: #222222 url("https://www2.arccorp.com/globalassets/traveljourney/img/tomorrowSecondary.png") center center no-repeat;
+        background: #222222
+          url("https://www2.arccorp.com/globalassets/traveljourney/img/tomorrowSecondary.png")
+          center center no-repeat;
         background-size: cover;
         color: #ffffff;
-        width: 400px;
-        height: 400px;
+        width: 200px;
+        height: 200px;
         position: absolute;
         bottom: 0;
         left: 340px;
         box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
 
         &.tomorrowBG {
-          background: #222222 url("https://www2.arccorp.com/globalassets/traveljourney/img/tomorrowSecondary.png") center center no-repeat;
+          background: #222222
+            url("https://www2.arccorp.com/globalassets/traveljourney/img/tomorrowSecondary.png")
+            center center no-repeat;
           background-size: cover;
         }
       }
@@ -490,14 +698,36 @@ $screenWidth: 1550px;
 
       .todayBG {
         background: #1a9bd1;
-        background: -webkit-linear-gradient(to top right, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-        background: -o-linear-gradient(to top right, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-        background: -moz-linear-gradient(to top right, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-        background: linear-gradient(to top right, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
+        background: -webkit-linear-gradient(
+          to top right,
+          #1a9bd1 25%,
+          #26b4e6 50%,
+          #2cc1f1 75%
+        );
+        background: -o-linear-gradient(
+          to top right,
+          #1a9bd1 25%,
+          #26b4e6 50%,
+          #2cc1f1 75%
+        );
+        background: -moz-linear-gradient(
+          to top right,
+          #1a9bd1 25%,
+          #26b4e6 50%,
+          #2cc1f1 75%
+        );
+        background: linear-gradient(
+          to top right,
+          #1a9bd1 25%,
+          #26b4e6 50%,
+          #2cc1f1 75%
+        );
       }
 
       .tomorrowBG {
-        background: #222222 url("https://www2.arccorp.com/globalassets/traveljourney/img/tomorrowPrimary.png") center center no-repeat;
+        background: #222222
+          url("https://www2.arccorp.com/globalassets/traveljourney/img/tomorrowPrimary.png")
+          center center no-repeat;
         background-size: cover;
       }
     }
@@ -568,5 +798,11 @@ $screenWidth: 1550px;
       margin-top: 80px;
       background: $shopColor;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sliderTopContainer {
+
   }
 }

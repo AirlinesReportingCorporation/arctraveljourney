@@ -19,7 +19,6 @@ class Pageslide extends React.Component {
 
     return <div className="pageSlide">
       {this.props.children}
-      {arrow}
     </div>;
   }
 }

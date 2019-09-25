@@ -1,73 +1,375 @@
-$breakSize: 960px;
+@import "../partials/colors";
 
-.pageWrapper {
+$breakSize: 960px;
+$minMobileHeight: 667px; //based off iphone 7/8
+$maxMobileHeight: 1025px; //based off ipad pro
+
+/* ================================== 
+        Styles for Travel Journey Homepage
+   ================================== */
+
+.startPageWrapper {
   height: 100vh;
   overflow-y: hidden;
 }
 
 .startPage {
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  align-items: center;
   height: 100%;
+}
 
-  .horizontalSlide {
-    display: inline-block;
-    width: $breakSize;
-    height: 100%;
-  }
+/* ================================== 
+        main image styles
+   ================================== */
+.mainImage {
+  max-width: 600px;
+  z-index: 30;
+  margin: 0 auto;
+  width: 100%;
 
-  .animationContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  &--vertical {
+    max-width: none;
+    width: auto;
+    max-height: 500px;
   }
 }
 
-.card1,
-.card2,
-.card3,
-.card4 {
+.backImage {
+  width: auto;
+  display: block;
   position: absolute;
-  border-radius: 5px;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  will-change: transform;
+  z-index: 29;
 }
 
-.card1 {
-  min-width: 60ch;
-  min-height: 60ch;
-  width: 45vw;
-  height: 45vw;
-  max-width: 100ch;
-  max-height: 100ch;
-  background-image: url(https://image.flaticon.com/icons/svg/119/119596.svg);
+.backImage1 {
+  top: 40%;
 }
 
-.card2 {
-  width: 25ch;
-  height: 25ch;
-  background-image: url(https://image.flaticon.com/icons/svg/789/789395.svg);
+.backImage2 {
+  top: 40%;
+  right: 80px;
 }
 
-.card3 {
-  opacity: 0.9;
-  width: 25ch;
-  height: 25ch;
-  background-image: url(https://image.flaticon.com/icons/svg/414/414927.svg);
+.backImageWords {
+  width: 100%;
+  max-width: 400px;
+  top: 120px;
+  left: 40px;
 }
 
-.card4 {
-  width: 25ch;
-  height: 25ch;
-  background-image: url(https://image.flaticon.com/icons/svg/789/789392.svg);
+/* ================================== 
+        Horizontal slide styles
+   ================================== */
+
+.horizontalSlide {
+  position: relative;
+  min-height: $minMobileHeight;
+  max-height: $maxMobileHeight;
+  width: $breakSize;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+
+  padding: 40px;
+
+  &.half {
+    width: $breakSize / 1.5;
+  }
+
+  &.third {
+    width: $breakSize / 3;
+  }
+
+  &.quarter {
+    width: $breakSize / 4;
+  }
+
+  &--left {
+    align-items: flex-start;
+  }
+
+  &--shop {
+    .backImageWords {
+      top: 80px;
+      left: auto;
+    }
+  }
+
+  &--pretrip {
+    .backImageWords {
+      top: 20px;
+    }
+  }
+}
+
+.slide-title {
+  position: relative;
+  color: #ffffff;
+  padding: 20px 80px;
+  margin-bottom: 20px;
+  font-weight: 900;
+  font-size: 3rem;
+  line-height: 1;
+
+  img {
+    position: absolute;
+  }
+
+  &--inspire {
+    background: $inspireColor;
+
+    img {
+      bottom: -20px;
+    }
+  }
+
+  &--shop {
+    background: $shopColor;
+
+    img {
+      bottom: -55px;
+      left: -119px;
+      z-index: -1;
+    }
+  }
+
+  &--offer {
+    background: $offerColor;
+
+    img {
+      bottom: -40px;
+      left: 0;
+      z-index: -1;
+    }
+  }
+
+  &--purchase {
+    background: $purchaseColor;
+
+    img {
+      top: -90px;
+      right: -120px;
+      width: 150px;
+    }
+  }
+
+  &--pretrip {
+    background: $pretripColor;
+  }
+
+  &--trip {
+    background: $tripColor;
+  }
+
+  &--outcome {
+    background: $outcomeColor;
+  }
+}
+
+.slide-sep {
+  height: 4px;
+  width: 64px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+
+  &--inspire {
+    background: $inspireColor;
+  }
+
+  &--shop {
+    background: $shopColor;
+  }
+
+  &--offer {
+    background: $offerColor;
+  }
+
+  &--purchase {
+    background: $purchaseColor;
+  }
+
+  &--pretrip {
+    background: $pretripColor;
+  }
+
+  &--trip {
+    background: $tripColor;
+  }
+
+  &--outcome {
+    background: $outcomeColor;
+  }
+}
+
+.slideLink {
+  color: #189bb0;
+  margin-left: 20px;
+
+  &:hover {
+    color: inherit;
+    opacity: .8;
+  }
+  
+  &--inspire {
+    color: $inspireColor;
+  }
+
+  &--shop {
+    color: $shopColor;
+  }
+
+  &--offer {
+    color: $offerColor;
+  }
+
+  &--purchase {
+    color: $purchaseColor;
+  }
+
+  &--pretrip {
+    color: $pretripColor;
+  }
+
+  &--trip {
+    color: $tripColor;
+  }
+
+  &--outcome {
+    color: $outcomeColor;
+  }
+}
+
+.slide-subtitle {
+  position: absolute;
+  top: 0;
+  color: $regularGrey;
+  font-family: "Amatic SC", "Source Sans Pro", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 4rem;
+
+  &--step {
+    color: $regularBlack;
+    left: 60px;
+  }
+}
+
+.slide-content {
+  font-size: 1.5rem;
+  margin-left: 20px;
+  margin-bottom: 20px;
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+.horizontalSlide1 {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+
+  .mainTitle {
+    color: $regularBlack;
+    font-weight: 900;
+    margin: 0;
+    line-height: 0.8;
+  }
+
+  .slide1-arrow {
+    position: absolute;
+    top: 80px;
+    right: 40px;
+    margin-bottom: 80px;
+  }
+}
+
+.horizontalSlide2 {
 }
 
 @media screen and (max-width: 786px) {
+  .startPageWrapper {
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .horizontalSlide {
+    .backImageWords {
+      position: relative;
+      left: 0;
+      top: auto;
+      align-self: flex-start;
+    }
+  }
+
+  .backImage2 {
+    display: none;
+  }
+
+  .startPage {
+    width: 100% !important;
+    flex-direction: column;
+
+    .horizontalSlide {
+      width: 100%;
+
+      &.half,
+      &.quarter {
+        width: 100%;
+      }
+    }
+  }
+
+  .horizontalSlide1 {
+    .slide1-arrow {
+      width: 45%;
+    }
+
+    .slide1-subtitle {
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
   .startPage {
     .horizontalSlide {
-      display: block;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+
+      .mainTitle {
+        font-size: 5rem;
+      }
+
+      .slide1-subtitle {
+        position: relative;
+      }
+    }
+  }
+
+  .horizontalSlide1 {
+    align-items: flex-start;
+    align-content: center;
+    .slide1-arrow {
+      width: 45%;
+    }
+
+    .slide1-subtitle {
+      font-size: 2.5rem;
+    }
+
+    .slide1-arrow {
+      right: auto;
+      margin-bottom: 0;
+      width: auto;
+      max-width: 100%;
+      position: relative;
     }
   }
 }

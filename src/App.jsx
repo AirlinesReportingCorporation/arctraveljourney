@@ -9,6 +9,8 @@ import {hot} from 'react-hot-loader';
 import Startpage from './pages/Startpage.jsx';
 import Slidenav from './components/Slidenav.jsx';
 
+
+
 //navigation
 import Navigation from './pages/Navigation.jsx';
 

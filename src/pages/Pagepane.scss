@@ -90,6 +90,8 @@ $screenWidth: 1550px;
   .bulletSlide {
     padding: 40px 40px;
     width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 
     h1 {
       font-size: 4rem;
@@ -153,7 +155,7 @@ $screenWidth: 1550px;
       padding: 20px;
       font-family: SourceSansPro-Regular, helvetica, arial, sans-serif;
       font-size: 2.5rem;
-      line-height: 1;
+      line-height: 1.25;
     }
 
     .quoteMetaSeperate {
@@ -315,7 +317,7 @@ $screenWidth: 1550px;
     img {
       padding-left: 80px;
       padding-top: 120px;
-      padding-bottom: 20px;
+      padding-bottom: 0;
       display: block;
     }
 
@@ -587,13 +589,13 @@ $screenWidth: 1550px;
     }
 
     .todayTomorrowContainer {
-      height: 500px;
+      height: 560px;
       padding: 0 80px;
       position: relative;
 
       .todayTomorrowMain {
-        height: 500px;
-        width: 540px;
+        height: 400px;
+        width: 440px;
         margin: 0 auto;
         background: #1a9bd1;
         background: -webkit-linear-gradient(
@@ -631,6 +633,9 @@ $screenWidth: 1550px;
 
       .todayTomorrowMainContent {
         font-family: SourceSansPro-Regular, helvetica, arial, sans-serif;
+        font-size: 1.25rem;
+        line-height: 1.25;
+
         span {
           font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
           text-decoration: underline;
@@ -666,7 +671,7 @@ $screenWidth: 1550px;
         height: 200px;
         position: absolute;
         bottom: 0;
-        left: 340px;
+        left: 486px;
         box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
 
         &.tomorrowBG {
@@ -680,19 +685,21 @@ $screenWidth: 1550px;
       .todayTomorrowSecondaryContent {
         color: #ffffff;
         text-align: center;
-        padding-top: 140px;
+        padding-top: 80px;
 
         .todayTomorrowTouch {
-          font-size: 24px;
-          line-height: 54px;
-          font-family: SourceSansPro-Bold, helvetica, arial, sans-serif;
+          font-size: 1rem;
+          line-height: 1;
+          font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+          font-weight: 600;
           text-transform: uppercase;
         }
 
         .todayTomorrowSecondaryTitle {
-          font-size: 50px;
-          line-height: 54px;
-          font-family: SourceSansPro-Bold, helvetica, arial, sans-serif;
+          font-size: 2rem;
+          line-height: 1;
+          font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+          font-weight: 600;
         }
       }
 

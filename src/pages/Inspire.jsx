@@ -118,27 +118,25 @@ class Inspire extends React.Component {
       </Pageslide>
       <Pageslide>
         <div className="quoteSlide">
-          <div className="row">
-            <div className="col-lg-4">
-              <div className="quotePhoto">
-                <img src="img/lauriQuote.png" alt="Lauri Reishus" />
-              </div>
-              <div className="quoteMeta">
-                LAURI REISHUS<br />
-                Executive Vice President and
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-4">
+                <div className="quotePhoto">
+                  <img src="img/lauriQuote.png" alt="Lauri Reishus" />
+                </div>
+                <div className="quoteMeta">
+                  LAURI REISHUS<br />
+                  Executive Vice President and
             <br />Chief Operating Officer, ARC
               </div>
-            </div>
-            <div className="col-lg-8">
-              <div className="quoteText">
-                Personalization is the next frontier for our industry. It requires massive customer data management, insights and analytics &mdash; but it holds great promise of getting the right product with theright price point to theright customer.
+              </div>
+              <div className="col-lg-8">
+                <div className="quoteText">
+                  Personalization is the next frontier for our industry. It requires massive customer data management, insights and analytics &mdash; but it holds great promise of getting the right product with theright price point to theright customer.
+              </div>
               </div>
             </div>
           </div>
-
-
-
-
         </div>
 
       </Pageslide>
@@ -162,15 +160,23 @@ class Inspire extends React.Component {
       <Pageslide>
         <div className="textSlide GradientDarkblue">
           <div className="container">
-            <div className="textSlideContent">
-              Airline products are becoming more customizable.<br /><br />
-              Travelers are looking for more unique, one-of-a-kind experiences.<br /><br />
-              Consumers are navigating a marketing-saturated digital world.<br /><br />
+            <div className="row">
+              <div className="col-md-10">
+                <div className="textSlideContent">
+                  Airline products are becoming more customizable.<br /><br />
+                  Travelers are looking for more unique, one-of-a-kind experiences.<br /><br />
+                  Consumers are navigating a marketing-saturated digital world.<br /><br />
 
-              <strong>In the right context, personalization is the most meaningful way to make your brand's voice heard.</strong>
+                  <strong>In the right context, personalization is the most meaningful way to make your brand's voice heard.</strong>
 
+                </div>
+              </div>
+              <div className="col-md-2">
               <img src="img/allcopyInspire.png" alt="" />
+              </div>
+
             </div>
+
           </div>
 
         </div>

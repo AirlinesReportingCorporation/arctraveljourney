@@ -2,7 +2,7 @@
 
 $breakSize: 960px;
 $minMobileHeight: 667px; //based off iphone 7/8
-$maxMobileHeight: 1025px; //based off ipad pro
+$maxMobileHeight: 667px; //based off ipad pro
 
 /* ================================== 
         Styles for Travel Journey Homepage
@@ -46,6 +46,7 @@ $maxMobileHeight: 1025px; //based off ipad pro
 
 .backImage1 {
   top: 40%;
+  left: 25%;
 }
 
 .backImage2 {
@@ -65,9 +66,11 @@ $maxMobileHeight: 1025px; //based off ipad pro
    ================================== */
 
 .horizontalSlide {
+  //display: none;
   position: relative;
   min-height: $minMobileHeight;
   max-height: $maxMobileHeight;
+  height: 100%;
   width: $breakSize;
 
   align-items: center;
@@ -76,6 +79,14 @@ $maxMobileHeight: 1025px; //based off ipad pro
   display: flex;
 
   padding: 40px;
+
+  & .horizontalSlide {
+    //display: none;
+  }
+
+  & .horizontalSlide.animated {
+    //display: flex;
+  }
 
   &.half {
     width: $breakSize / 1.5;
@@ -105,6 +116,13 @@ $maxMobileHeight: 1025px; //based off ipad pro
       top: 20px;
     }
   }
+}
+
+.animated { visibility: visible !important; }
+
+.slide-container {
+  //visibility: hidden;
+  @extend .horizontalSlide
 }
 
 .slide-title {
@@ -262,6 +280,7 @@ $maxMobileHeight: 1025px; //based off ipad pro
   font-size: 1.5rem;
   margin-left: 20px;
   margin-bottom: 20px;
+  max-width: 100%;
 
   strong {
     font-weight: 700;
@@ -319,6 +338,10 @@ $maxMobileHeight: 1025px; //based off ipad pro
     .horizontalSlide {
       width: 100%;
 
+      .mainTitle {
+        font-size: 8rem;
+      }
+
       &.half,
       &.quarter {
         width: 100%;
@@ -371,5 +394,10 @@ $maxMobileHeight: 1025px; //based off ipad pro
       max-width: 100%;
       position: relative;
     }
+  }
+
+  .slide-title {
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }

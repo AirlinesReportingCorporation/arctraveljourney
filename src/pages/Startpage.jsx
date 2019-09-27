@@ -11,6 +11,9 @@ import Slider from '../components/Slider.jsx';
 import Pageslide from '../components/Pageslide.jsx';
 import Customlink from '../components/Customlink.jsx';
 import smoothscroll from 'smoothscroll-polyfill';
+import LazyLoad from 'react-lazyload';
+
+import { Waypoint } from 'react-waypoint';
 
 smoothscroll.polyfill();
 
@@ -22,7 +25,9 @@ class Startpage extends React.Component {
       scrollPos: 0,
       paneWidth: "900vw",
       xy: [0, 0],
-      mobile: false
+      mobile: false,
+      revealId: 1,
+      revealClass: "fadeIn"
     };
 
     this.showDrawer = this.showDrawer.bind(this);
@@ -33,11 +38,12 @@ class Startpage extends React.Component {
     this.setHorizontalWidth = this.setHorizontalWidth.bind(this);
     this.onResize = this.onResize.bind(this);
     this.scrollBy = this.scrollBy.bind(this);
+    this.scrollReveal = this.scrollReveal.bind(this);
   }
 
   wheel(e) {
 
-    console.log("wheel");
+    //console.log("wheel");
 
     var fscrollPos = 0;
 
@@ -73,6 +79,25 @@ class Startpage extends React.Component {
 
     this.setState({ scrollPos: fscrollPos })
 
+  }
+
+  scrollReveal(props, id, event, classname) {
+
+    console.log(props);
+
+    if (event === "enter") {
+      if (classname === null || classname === "") {
+        classname = "fadeIn";
+      }
+    }
+    else if (event === "leave") {
+      if (classname === null || classname === "") {
+        classname = "fadeOut";
+      }
+    }
+
+    this.setState({ revealId: id });
+    this.setState({ revealClass: classname })
   }
 
   setHorizontalWidth() {
@@ -121,6 +146,10 @@ class Startpage extends React.Component {
 
   }
 
+  componentWillUnmount() {
+    document.querySelector('.startPage').removeEventListener('wheel', this.scrollBy, true)
+  }
+
   componentDidUpate() {
     var totalWidth = 0;
 
@@ -131,7 +160,7 @@ class Startpage extends React.Component {
       console.log(i + ":" + children[i].getBoundingClientRect().width);
     }
 
-    this.setState({ paneWidth: children.length * 960 });
+    this.setState({ paneWidth: (children.length * 960) });
   }
 
   showDrawer() {
@@ -156,50 +185,85 @@ class Startpage extends React.Component {
         "width" : this.state.paneWidth
       }}
     */
+
+    console.log("Mobile? " + this.state.mobile);
+
     return (<div className="startPageWrapper">
       <div className="startPage pagePaneContainer" style={{
         "width": !this.state.mobile ? this.state.paneWidth : ""
-      }} pages={9}>
+      }}>
 
-        <div className="horizontalSlide horizontalSlide1">
-          <div className="slide-subtitle">
-            Explore
-        </div>
-          <h1 className="mainTitle">
-            The <br />Travel <br />Journey
-        </h1>
-          <img className="slide1-arrow" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/slide1-plane.png" alt="" />
+        <Waypoint horizontal={!this.state.mobile} onEnter={({ previousPosition, currentPosition, event }) => {
+          this.scrollReveal(currentPosition, 1, "enter", "fadeInLeft")
+        }} onLeave={({ previousPosition, currentPosition, event }) => {
+          this.scrollReveal(currentPosition, 1, "leave", "fadeOutLeft")
+        }}>
 
-        </div>
-
-        <div className="horizontalSlide">
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-back1.png" alt="" className="backImage backImage1" />
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-back2.png" alt="" className="backImage backImage2" />
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-backWords.png" alt="" className="backImage backImageWords" />
-          <img className="mainImage" src="https://www2.arccorp.com/globalassets/traveljourney/img/inspire1.png" />
-        </div>
-
-        <div className="horizontalSlide horizontalSlide--left half">
-          <div className="slide-subtitle slide-subtitle--step">
-            Step 1
-        </div>
-          <div className="slide-title slide-title--inspire">
-            Inspire.
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/img/step1-inspire.png" alt="Inspire" />
+          <div className="horizontalSlide ">
+            <div className={((this.state.revealId == 1) ? "slide-container horizontalSlide1 animated " + this.state.revealClass : "slide-container horizontalSlide1")}>
+              <div className="slide-subtitle">
+                Explore
+              </div>
+              <h1 className="mainTitle">
+                The <br />Travel <br />Journey
+              </h1>
+              <LazyLoad offset={100}><img className="slide1-arrow" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/slide1-plane.png" alt="" /></LazyLoad>
+            </div>
           </div>
-          <div className="slide-sep slide-sep--inspire">&nbsp;</div>
-          <div className="slide-content">
-            <strong>The traveler is inspired to take a trip.</strong> Inspiration can be found everywhere, and it can look different: business trips, family vacations, luxury getaways, etc.
-        </div>
-          <Link to="/inspire/">
-            <div className="slideLink slideLink--inspire">Explore &rsaquo;</div>
-          </Link>
-        </div>
+        </Waypoint>
+
+        <Waypoint topOffset="20%" bottomOffset="20%" horizontal={!this.state.mobile} onEnter={({ previousPosition, currentPosition, event }) => {
+          this.scrollReveal(currentPosition, 2, "enter", "fadeInDown")
+        }} onLeave={({ previousPosition, currentPosition, event }) => {
+          this.scrollReveal(currentPosition, 2, "leave", "fadeOut")
+        }}>
+          <div className="horizontalSlide ">
+            <div className={((this.state.revealId == 2) ? "slide-container animated " + this.state.revealClass : "slide-container")}>
+              <LazyLoad offset={100}>
+                <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-back1.png" alt="" className="backImage backImage1" />
+              </LazyLoad>
+
+              <LazyLoad offset={100}>
+                <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-back2.png" alt="" className="backImage backImage2" />
+              </LazyLoad>
+              <LazyLoad offset={100}>
+                <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-backWords.png" alt="" className="backImage backImageWords" />
+              </LazyLoad>
+              <LazyLoad offset={100}>
+                <img className="mainImage" src="https://www2.arccorp.com/globalassets/traveljourney/img/inspire1.png" />
+              </LazyLoad>
+            </div>
+          </div>
+        </Waypoint>
+
+        <Waypoint topOffset="10%" bottomOffset="10%" horizontal={!this.state.mobile} onEnter={({ previousPosition, currentPosition, event }) => {
+          this.scrollReveal(currentPosition, 3, "enter", "fadeInDown")
+        }} onLeave={({ previousPosition, currentPosition, event }) => {
+          this.scrollReveal(currentPosition, 3, "leave", "fadeOut")
+        }}>
+          <div className="horizontalSlide horizontalSlide--left half">
+            <div className={((this.state.revealId == 3) ? "slide-container horizontalSlide--left half animated " + this.state.revealClass : "slide-container horizontalSlide--left half")}>
+              <div className="slide-subtitle slide-subtitle--step">
+                Step 1
+            </div>
+              <div className="slide-title slide-title--inspire">
+                Inspire.
+          <LazyLoad offset={100}><img src="https://www2.arccorp.com/globalassets/traveljourney/img/step1-inspire.png" alt="Inspire" /></LazyLoad>
+              </div>
+              <div className="slide-sep slide-sep--inspire">&nbsp;</div>
+              <div className="slide-content">
+                <strong>The traveler is inspired to take a trip.</strong> Inspiration can be found everywhere, and it can look different: business trips, family vacations, luxury getaways, etc.
+          </div>
+            </div>
+
+          </div>
+        </Waypoint>
+
 
         <div className="horizontalSlide horizontalSlide--shop">
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/shop-back2.png" alt="" className="backImage backImage2" />
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/shop-backWords.png" alt="" className="backImage backImageWords" />
-          <img className="mainImage" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/Shop-alt.png" />
+          <LazyLoad offset={100}><img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/shop-back2.png" alt="" className="backImage backImage2" /></LazyLoad>
+          <LazyLoad offset={100}><img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/shop-backWords.png" alt="" className="backImage backImageWords" /></LazyLoad>
+          <LazyLoad offset={100}><img className="mainImage" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/Shop-alt.png" /></LazyLoad>
         </div>
 
         <div className="horizontalSlide horizontalSlide--left  half">
@@ -208,7 +272,7 @@ class Startpage extends React.Component {
         </div>
           <div className="slide-title slide-title--shop">
             Shop.
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/slide2-shop.png" alt="shop" />
+          <LazyLoad offset={100}><img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/slide2-shop.png" alt="shop" /></LazyLoad>
           </div>
           <div className="slide-sep slide-sep--shop">&nbsp;</div>
           <div className="slide-content">
@@ -220,8 +284,8 @@ class Startpage extends React.Component {
         </div>
 
         <div className="horizontalSlide horizontalSlide--offer">
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/offer-backWords.png" alt="" className="backImage backImageWords" />
-          <img className="mainImage" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/offer-alt.png" />
+          <LazyLoad offset={100}><img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/offer-backWords.png" alt="" className="backImage backImageWords" /></LazyLoad>
+          <LazyLoad offset={100}><img className="mainImage" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/offer-alt.png" /></LazyLoad>
         </div>
 
         <div className="horizontalSlide horizontalSlide--left  half">
@@ -241,8 +305,8 @@ class Startpage extends React.Component {
         </div>
 
         <div className="horizontalSlide horizontalSlide--purchase">
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/purchase-backWords.png" alt="" className="backImage backImageWords" />
-          <img className="mainImage" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/purchase-alt.png" />
+          <LazyLoad offset={100}><img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/purchase-backWords.png" alt="" className="backImage backImageWords" /></LazyLoad>
+          <LazyLoad offset={100}><img className="mainImage" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/purchase-alt.png" /></LazyLoad>
         </div>
 
         <div className="horizontalSlide horizontalSlide--left  half">
@@ -251,7 +315,7 @@ class Startpage extends React.Component {
         </div>
           <div className="slide-title slide-title--purchase">
             Purchase.
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/slide4-purchase.png" alt="purchase" />
+          <LazyLoad offset={100}><img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/slide4-purchase.png" alt="purchase" /></LazyLoad>
           </div>
           <div className="slide-sep slide-sep--purchase">&nbsp;</div>
           <div className="slide-content">
@@ -263,8 +327,8 @@ class Startpage extends React.Component {
         </div>
 
         <div className="horizontalSlide horizontalSlide--pretrip">
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/pretrip-backWords.png" alt="" className="backImage backImageWords" />
-          <img className="mainImage mainImage--vertical" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/pretrip-alt.png" />
+          <LazyLoad offset={100}><img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/pretrip-backWords.png" alt="" className="backImage backImageWords" /></LazyLoad>
+          <LazyLoad offset={100}><img className="mainImage mainImage--vertical" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/pretrip-alt.png" /></LazyLoad>
         </div>
 
         <div className="horizontalSlide horizontalSlide--left  half">
@@ -284,8 +348,8 @@ class Startpage extends React.Component {
         </div>
 
         <div className="horizontalSlide horizontalSlide--trip">
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/trip-backWords.png" alt="" className="backImage backImageWords" />
-          <img className="mainImage mainImage--vertical" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/trip-alt.png" />
+          <LazyLoad offset={100}><img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/trip-backWords.png" alt="" className="backImage backImageWords" /></LazyLoad>
+          <LazyLoad offset={100}><img className="mainImage mainImage--vertical" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/trip-alt.png" /></LazyLoad>
         </div>
 
         <div className="horizontalSlide horizontalSlide--left  half">
@@ -305,8 +369,8 @@ class Startpage extends React.Component {
         </div>
 
         <div className="horizontalSlide horizontalSlide--outcome">
-          <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/outcome-backWords.png" alt="" className="backImage backImageWords" />
-          <img className="mainImage mainImage--vertical" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/outcome-alt.png" />
+          <LazyLoad offset={100}><img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/outcome-backWords.png" alt="" className="backImage backImageWords" /></LazyLoad>
+          <LazyLoad offset={100}><img className="mainImage mainImage--vertical" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/outcome-alt.png" /></LazyLoad>
         </div>
 
         <div className="horizontalSlide horizontalSlide--left  half">
@@ -324,7 +388,7 @@ class Startpage extends React.Component {
         </div>
 
       </div>
-    </div>);
+    </div >);
   }
 }
 

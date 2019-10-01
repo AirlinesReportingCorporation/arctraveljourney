@@ -2,88 +2,121 @@
 
 $screenWidth: 1550px;
 
+.startNav-container {
+  position: fixed;
+  right: 40px;
+  top: 40px;
+  z-index: 999999;
+
+  .topNavContainer {
+    left: 0;
+  }
+}
+
+.topNav {
+  height: 90px;
+  padding: 15px 0;
+
+  .container,
+  .row {
+    height: 100%;
+  }
+
+  .nav-logo {
+    width: 100px;
+  }
+}
+
+.nav-grip {
+  color: #000000;
+  font-size: 2rem;
+  text-align: right;
+  i {
+    cursor: pointer;
+  }
+}
+
+.topNavContainer {
+  display: none;
+  position: fixed;
+  width: 100%;
+  background: #ffffff;
+  z-index: 999;
+  height: 100vh;
+  top: 0;
+
+  a,
+  a:visited {
+    color: $regularBlack;
+    font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    line-height: 1.2;
+    display: block;
+    margin-bottom: 20px;
+
+    &:hover {
+      color: $inspireColor;
+    }
+
+    span {
+      font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      display: block;
+    }
+  }
+
+  .container {
+    position: relative;
+  }
+
+  .container,
+  .row {
+    height: 100%;
+  }
+
+  .topNavClose {
+    position: absolute;
+    font-size: 3rem;
+    top: 40px;
+    right: 40px;
+    i {
+      cursor: pointer;
+    }
+    &:hover {
+      color: $regularBlack;
+    }
+  }
+}
+
 .pagePaneContainer {
   .titleSlide {
-    background: #ffffff;
-    height: 100%;
-    width: $screenWidth;
-    max-width: $screenWidth;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: $inspireColor;
 
-    .pagePaneContent {
-      background: #ffffff;
-      height: 100%;
-      padding-right: 160px;
+    .slide-subtitle {
+      color: #ffffff;
+      position: relative;
+      left: 0;
+      margin-bottom: 20px;
+    }
 
-      .section1 {
-        position: relative;
-        border-bottom: none;
-        height: 100vh;
+    .slide-title {
+      display: inline-block;
+      background: #ffffff !important;
+      color: $inspireColor;
+    }
 
-        .stepNumber {
-          color: #222222;
-          font-family: "Amatic SC", helvetica, arial, sans-serif;
-          font-size: 60px;
-          margin-left: 160px;
-          padding-top: 80px;
-          padding-bottom: 80px;
-        }
+    .slide-content {
+      color: #ffffff;
+      margin: 0;
+    }
 
-        h1 {
-          display: inline-block;
-          color: #ffffff;
-          background: $inspireColor;
-          margin-left: 80px;
-          padding: 20px 80px;
-          font-size: 4rem;
-          line-height: 4rem;
-          margin-bottom: 0;
-        }
-
-        .sep {
-          background: $inspireColor;
-          height: 8px;
-          width: 80px;
-          margin-left: 160px;
-          margin-top: 40px;
-          margin-bottom: 80px;
-        }
-
-        img {
-          position: absolute;
-          bottom: -58px;
-          left: 120px;
-          height: 800px;
-        }
-
-        p {
-          color: #222222;
-          font-family: SourceSansPro-Semibold, helvetica, arial, sans-serif;
-          margin-left: 160px;
-          font-size: 50px;
-        }
-      }
-
-      .section2 {
-        display: grid;
-        align-items: center;
-        height: 100%;
-        text-align: center;
-        background: #ffffff;
-        padding: 40px;
-
-        img {
-          width: 100%;
-          max-width: 100%;
-        }
-
-        p {
-          color: $inspireColor;
-          text-align: center;
-          font-size: 34px;
-          padding-top: 100px;
-          margin-bottom: 80px;
-        }
-      }
+    img {
+      max-width: 100%;
+      width: 100%;
     }
   }
 
@@ -162,7 +195,8 @@ $screenWidth: 1550px;
       color: #ffffff;
       padding-top: 20px;
       margin-left: 100px;
-      font-family: SourceSansPro-Semibold, helvetica, arial, sans-serif;
+      font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+      font-weight: 600;
       font-size: 36px;
     }
 
@@ -170,7 +204,8 @@ $screenWidth: 1550px;
       color: #ffffff;
       padding-top: 20px;
       margin-left: 60px;
-      font-family: SourceSansPro-Semibold, helvetica, arial, sans-serif;
+      font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+      font-weight: 600;
       font-size: 1.2rem;
     }
   }
@@ -201,6 +236,7 @@ $screenWidth: 1550px;
       #66e288 50%,
       #a1e176 75%
     );
+    overflow: hidden;
 
     &.GradientDarkblue {
       background: #0c537c;
@@ -314,9 +350,14 @@ $screenWidth: 1550px;
       );
     }
 
+    .container,
+    .row {
+      height: 100%;
+    }
+
     img {
-      padding-left: 80px;
-      padding-top: 120px;
+      padding-left: 20px;
+      padding-top: 40px;
       padding-bottom: 0;
       display: block;
     }
@@ -324,13 +365,14 @@ $screenWidth: 1550px;
     .textSlideContent {
       color: #ffffff;
       padding: 40px;
-      font-size: 1.5rem;
+      font-size: 3rem;
       line-height: 1;
 
       span {
         font-family: "Source Sans Pro", helvetica, arial, sans-serif;
         font-weight: 900;
         text-decoration: underline;
+        cursor: pointer;
       }
     }
   }
@@ -384,21 +426,23 @@ $screenWidth: 1550px;
 
     .sliderContent {
       box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
-      height: 500px;
+      height: 550px;
       width: auto;
       text-align: center;
       margin-bottom: 40px;
 
       h2 {
         color: #ffffff;
-        padding-top: 20px;
+        padding: 20px;
         font-size: 2.5rem;
         line-height: 1;
       }
 
       img {
-        height: 250px;
+        max-height: 250px;
         margin-top: 40px;
+        max-width: 100%;
+        padding: 10px;
       }
 
       .touchText {
@@ -559,7 +603,8 @@ $screenWidth: 1550px;
   }
 
   .todayTomorrowSlide {
-
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 80px 40px;
 
     &.big {
@@ -586,17 +631,17 @@ $screenWidth: 1550px;
       font-size: 4rem;
       line-height: 1;
       text-align: center;
+      margin-bottom: 80px;
     }
 
     .todayTomorrowContainer {
-      height: 560px;
       padding: 0 80px;
       position: relative;
 
       .todayTomorrowMain {
-        height: 400px;
-        width: 440px;
-        margin: 0 auto;
+        min-height: 400px;
+        width: auto;
+        margin: 20px auto;
         background: #1a9bd1;
         background: -webkit-linear-gradient(
           to top right,
@@ -639,6 +684,7 @@ $screenWidth: 1550px;
         span {
           font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
           text-decoration: underline;
+          cursor: pointer;
         }
 
         strong {
@@ -743,14 +789,14 @@ $screenWidth: 1550px;
   .blueSlide {
     height: 100%;
     background: #222222;
-    padding: 80px;
+    padding: 40px;
 
     h2 {
-      font-size: 89px;
-      line-height: 100px;
+      font-size: 3rem;
+      line-height: 1.2;
       color: #ffffff;
-      margin-top: 573px;
-      padding-right: 100px;
+      //margin-top: 573px;
+      //padding-right: 100px;
     }
 
     .blueContainer {
@@ -759,13 +805,15 @@ $screenWidth: 1550px;
       background: #2dc1f1;
       text-align: center;
       padding: 100px;
-      font-size: 36px;
-      line-height: 52px;
+      font-size: 2.5rem;
+      line-height: 1.2;
 
       button {
         background: #ffffff;
         color: $inspireColor;
-        margin-top: 80px;
+        margin-top: 2.5rem;
+        border: none;
+        cursor: pointer;
       }
     }
   }
@@ -787,29 +835,217 @@ $screenWidth: 1550px;
   }
 
   .endSlide {
-    padding-top: 1240px;
-    background: #ffffff;
-    padding: 1240px 120px 120px;
-    text-align: center;
-    max-height: 1920px;
+    color: $regularBlack;
+    padding: 100px 20px;
+    text-align: left;
     overflow: hidden;
+    position: relative;
+    z-index: 3;
+
+    img {
+      max-width: 100%;
+    }
 
     h2 {
+      color: $regularBlack;
+      position: relative;
       font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
-      font-size: 72px;
-      line-height: 84px;
-      padding-top: 80px;
+      font-size: 3rem;
+      line-height: 1.25;
+      padding-top: 0;
+      z-index: 3;
+      margin-bottom: 40px;
     }
 
     button {
-      margin-top: 80px;
+      position: relative;
+      margin: 0 0 15px 0;
       background: $shopColor;
+      z-index: 3;
+      border: none;
+      cursor: pointer;
     }
   }
 }
 
+/* ============ Tablet Styles ============= */
 @media screen and (max-width: 768px) {
-  .sliderTopContainer {
+  .pagePaneContainer .owl-carousel .sliderContent img,
+  .pagePaneContainer .sliderTopContainer .sliderContent img {
+    padding: 20px;
+  }
+  .pagePaneContainer .bulletSlide h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
 
+  .pagePaneContainer .todayTomorrowSlide .todayTomorrowContainer {
+    padding: 0;
+  }
+
+  .pagePaneContainer .textSlide .textSlideContent {
+    padding: 45px 15px;
+  }
+
+  .pageWrapper .pagePaneContainer .textSlide .textSlideContent {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .pagePaneContainer .owl-carousel,
+  .pagePaneContainer .sliderTopContainer {
+    padding: 0;
+  }
+
+  .pagePaneContainer .textSlide img {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .ant-drawer-content-wrapper {
+    width: 75% !important;
+  }
+
+  .pageWrapper .topNavContainer {
+    .row {
+      display: block;
+      padding-top: 40px;
+      margin-left: 40px;
+      //align-items: flex-start !important;
+    }
+  }
+
+  .startNav {
+    padding: 5px 15px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.9) 0 20px 60px -10px;
+    }
+  }
+}
+/* ========= Mobile Styles =========== */
+@media screen and (max-width: 576px) {
+  .pagePaneContainer .blueSlide h2 {
+    font-size: 2rem;
+  }
+
+  .pagePaneContainer .blueSlide {
+    padding: 25px 15px;
+  }
+
+  .pagePaneContainer .blueSlide .blueContainer {
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 1.5rem;
+  }
+
+  .blueSlide {
+    .row {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .customPurchaseSlide .row {
+    margin: 0;
+    padding: 0;
+  }
+
+  .ant-drawer .ant-drawer-close {
+    top: 40px !important;
+  }
+
+  .pageWrapper .topNavContainer {
+    .row {
+      display: block;
+      padding-top: 40px;
+      margin-left: 40px;
+      //align-items: flex-start !important;
+    }
+
+    .topNavClose {
+      top: 0;
+    }
+
+    a,
+    a:visited {
+      font-size: 2rem;
+    }
+  }
+
+  .mainImage--vertical {
+    width: 100%;
+  }
+
+  .ant-drawer-body .infoDrawer p {
+    font-size: 1rem;
+  }
+
+  .ant-drawer-content-wrapper {
+    width: 100% !important;
+  }
+
+  .todayTomorrowContainer .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .todayTomorrowContainer .container {
+    padding: 0;
+  }
+
+  .pagePaneContainer .bulletSlide {
+    padding: 0;
+  }
+
+  .pagePaneContainer .bulletSlide h1 {
+    padding: 20px;
+  }
+
+  .bulletSlide .row,
+  .bulletSlide .col-lg-4 {
+    margin: 0;
+    padding: 0;
+  }
+
+  .pagePaneContainer .owl-carousel .sliderContent .touchBackBtnContainer,
+  .pagePaneContainer .sliderTopContainer .sliderContent .touchBackBtnContainer {
+    bottom: 15px;
+  }
+
+  .pagePaneContainer .owl-carousel .sliderContent,
+  .pagePaneContainer .sliderTopContainer .sliderContent {
+    box-shadow: none;
+    margin-bottom: 0;
+  }
+
+  .pagePaneContainer .quoteSlide .quotePhoto {
+    margin-left: 0;
+  }
+
+  .pagePaneContainer .quoteSlide .quoteText {
+    font-size: 1.5rem;
+  }
+
+  .pagePaneContainer .quoteSlide {
+    padding: 40px 0;
+  }
+
+  .pagePaneContainer .todayTomorrowSlide {
+    padding: 40px 20px;
+  }
+
+  .pagePaneContainer .todayTomorrowSlide h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .pagePaneContainer
+    .todayTomorrowSlide
+    .todayTomorrowContainer
+    .todayTomorrowMain {
+    padding: 25px;
   }
 }

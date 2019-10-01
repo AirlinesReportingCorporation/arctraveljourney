@@ -3,17 +3,15 @@ import ReactDOM from 'react-dom'
 import { useSpring, animated } from 'react-spring';
 
 import { Drawer, Button } from 'antd';
-import { useSwipeable, Swipeable } from 'react-swipeable'
+
 import { withRouter } from 'react-router-dom';
 import { MemoryRouter as Router, Route, Link } from "react-router-dom";
 import './Startpage.scss';
-import Slider from '../components/Slider.jsx';
-import Pageslide from '../components/Pageslide.jsx';
-import Customlink from '../components/Customlink.jsx';
+import Topnav from '../components/Topnav.jsx';
 import smoothscroll from 'smoothscroll-polyfill';
 import LazyLoad from 'react-lazyload';
+import Startnav from '../components/Startnav.jsx';
 
-import { Waypoint } from 'react-waypoint';
 
 smoothscroll.polyfill();
 
@@ -83,8 +81,6 @@ class Startpage extends React.Component {
 
   scrollReveal(props, id, event, classname) {
 
-    console.log(props);
-
     if (event === "enter") {
       if (classname === null || classname === "") {
         classname = "fadeIn";
@@ -107,7 +103,7 @@ class Startpage extends React.Component {
 
     for (var i = 0; i < children.length; i++) {
       totalWidth += children[i].getBoundingClientRect().width;
-      console.log(i + ":" + children[i].getBoundingClientRect().width);
+      //console.log(i + ":" + children[i].getBoundingClientRect().width);
     }
 
     this.setState({ paneWidth: totalWidth });
@@ -147,7 +143,8 @@ class Startpage extends React.Component {
   }
 
   componentWillUnmount() {
-    document.querySelector('.startPage').removeEventListener('wheel', this.scrollBy, true)
+    document.querySelector('.startPage').removeEventListener('wheel', this.scrollBy, true);
+    window.removeEventListener('resize', this.onResize, false);
   }
 
   componentDidUpate() {
@@ -186,78 +183,60 @@ class Startpage extends React.Component {
       }}
     */
 
-    console.log("Mobile? " + this.state.mobile);
-
     return (<div className="startPageWrapper">
       <div className="startPage pagePaneContainer" style={{
         "width": !this.state.mobile ? this.state.paneWidth : ""
       }}>
 
-        <Waypoint horizontal={!this.state.mobile} onEnter={({ previousPosition, currentPosition, event }) => {
-          this.scrollReveal(currentPosition, 1, "enter", "fadeInLeft")
-        }} onLeave={({ previousPosition, currentPosition, event }) => {
-          this.scrollReveal(currentPosition, 1, "leave", "fadeOutLeft")
-        }}>
+        <Startnav />
 
-          <div className="horizontalSlide ">
-            <div className={((this.state.revealId == 1) ? "slide-container horizontalSlide1 animated " + this.state.revealClass : "slide-container horizontalSlide1")}>
-              <div className="slide-subtitle">
-                Explore
+
+
+        <div className="horizontalSlide horizontalSlide1">
+          <div className="slide-subtitle">
+            Explore
               </div>
-              <h1 className="mainTitle">
-                The <br />Travel <br />Journey
+          <h1 className="mainTitle">
+            The <br />Travel <br />Journey
               </h1>
-              <LazyLoad offset={100}><img className="slide1-arrow" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/slide1-plane.png" alt="" /></LazyLoad>
-            </div>
-          </div>
-        </Waypoint>
+          <LazyLoad offset={100}><img className="slide1-arrow" src="https://www2.arccorp.com/globalassets/traveljourney/web/img/slide1-plane.png" alt="" /></LazyLoad>
+        </div>
 
-        <Waypoint topOffset="20%" bottomOffset="20%" horizontal={!this.state.mobile} onEnter={({ previousPosition, currentPosition, event }) => {
-          this.scrollReveal(currentPosition, 2, "enter", "fadeInDown")
-        }} onLeave={({ previousPosition, currentPosition, event }) => {
-          this.scrollReveal(currentPosition, 2, "leave", "fadeOut")
-        }}>
-          <div className="horizontalSlide ">
-            <div className={((this.state.revealId == 2) ? "slide-container animated " + this.state.revealClass : "slide-container")}>
-              <LazyLoad offset={100}>
-                <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-back1.png" alt="" className="backImage backImage1" />
-              </LazyLoad>
 
-              <LazyLoad offset={100}>
-                <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-back2.png" alt="" className="backImage backImage2" />
-              </LazyLoad>
-              <LazyLoad offset={100}>
-                <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-backWords.png" alt="" className="backImage backImageWords" />
-              </LazyLoad>
-              <LazyLoad offset={100}>
-                <img className="mainImage" src="https://www2.arccorp.com/globalassets/traveljourney/img/inspire1.png" />
-              </LazyLoad>
-            </div>
-          </div>
-        </Waypoint>
+        <div className="horizontalSlide ">
+          <LazyLoad offset={100}>
+            <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-back1.png" alt="" className="backImage backImage1" />
+          </LazyLoad>
 
-        <Waypoint topOffset="10%" bottomOffset="10%" horizontal={!this.state.mobile} onEnter={({ previousPosition, currentPosition, event }) => {
-          this.scrollReveal(currentPosition, 3, "enter", "fadeInDown")
-        }} onLeave={({ previousPosition, currentPosition, event }) => {
-          this.scrollReveal(currentPosition, 3, "leave", "fadeOut")
-        }}>
-          <div className="horizontalSlide horizontalSlide--left half">
-            <div className={((this.state.revealId == 3) ? "slide-container horizontalSlide--left half animated " + this.state.revealClass : "slide-container horizontalSlide--left half")}>
-              <div className="slide-subtitle slide-subtitle--step">
-                Step 1
+          <LazyLoad offset={100}>
+            <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-back2.png" alt="" className="backImage backImage2" />
+          </LazyLoad>
+          <LazyLoad offset={100}>
+            <img src="https://www2.arccorp.com/globalassets/traveljourney/web/img/inspire-backWords.png" alt="" className="backImage backImageWords" />
+          </LazyLoad>
+          <LazyLoad offset={100}>
+            <img className="mainImage" src="https://www2.arccorp.com/globalassets/traveljourney/img/inspire1.png" />
+          </LazyLoad>
+        </div>
+
+        <div className="horizontalSlide horizontalSlide--left half">
+          <div className="slide-subtitle slide-subtitle--step">
+            Step 1
             </div>
-              <div className="slide-title slide-title--inspire">
-                Inspire.
+          <div className="slide-title slide-title--inspire">
+            Inspire.
           <LazyLoad offset={100}><img src="https://www2.arccorp.com/globalassets/traveljourney/img/step1-inspire.png" alt="Inspire" /></LazyLoad>
-              </div>
-              <div className="slide-sep slide-sep--inspire">&nbsp;</div>
-              <div className="slide-content">
-                <strong>The traveler is inspired to take a trip.</strong> Inspiration can be found everywhere, and it can look different: business trips, family vacations, luxury getaways, etc.
           </div>
-            </div>
-
+          <div className="slide-sep slide-sep--inspire">&nbsp;</div>
+          <div className="slide-content">
+            <strong>The traveler is inspired to take a trip.</strong> Inspiration can be found everywhere, and it can look different: business trips, family vacations, luxury getaways, etc.
           </div>
-        </Waypoint>
+          <Link to="/inspire/">
+            <button className="exploreBtn exploreBtn--inspire">
+              Explore <i className="fas fa-angle-right"></i>
+            </button>
+          </Link>
+        </div>
 
 
         <div className="horizontalSlide horizontalSlide--shop">
@@ -280,7 +259,12 @@ class Startpage extends React.Component {
           </div>
           <div className="slide-content">
             Learn how the shopping experience shapes the trip.
-        </div>
+          </div>
+          <Link to="/shop/">
+            <button className="exploreBtn exploreBtn--shop">
+              Explore <i className="fas fa-angle-right"></i>
+            </button>
+          </Link>
         </div>
 
         <div className="horizontalSlide horizontalSlide--offer">
@@ -302,6 +286,11 @@ class Startpage extends React.Component {
           <div className="slide-content">
             See how those offers are generated.
         </div>
+          <Link to="/offer/">
+            <button className="exploreBtn exploreBtn--offer">
+              Explore <i className="fas fa-angle-right"></i>
+            </button>
+          </Link>
         </div>
 
         <div className="horizontalSlide horizontalSlide--purchase">
@@ -324,6 +313,11 @@ class Startpage extends React.Component {
           <div className="slide-content">
             Learn how the purchase works, and how we can enhance it.
         </div>
+          <Link to="/purchase/">
+            <button className="exploreBtn exploreBtn--purchase">
+              Explore <i className="fas fa-angle-right"></i>
+            </button>
+          </Link>
         </div>
 
         <div className="horizontalSlide horizontalSlide--pretrip">
@@ -345,6 +339,11 @@ class Startpage extends React.Component {
           <div className="slide-content">
             See why this step of the travel journey is often underestimated.
         </div>
+          <Link to="/pretrip/">
+            <button className="exploreBtn exploreBtn--pretrip">
+              Explore <i className="fas fa-angle-right"></i>
+            </button>
+          </Link>
         </div>
 
         <div className="horizontalSlide horizontalSlide--trip">
@@ -366,6 +365,11 @@ class Startpage extends React.Component {
           <div className="slide-content">
             With dozens of touch points on the day of travel, brands have many opportunities to reduce friction.
         </div>
+          <Link to="/trip/">
+            <button className="exploreBtn exploreBtn--trip">
+              Explore <i className="fas fa-angle-right"></i>
+            </button>
+          </Link>
         </div>
 
         <div className="horizontalSlide horizontalSlide--outcome">
@@ -384,10 +388,15 @@ class Startpage extends React.Component {
           <div className="slide-content">
             <strong>The traveler's experience &mdash; positive, neutral or negative &mdash; informs their own future decisions, as well as those of friends, family, colleagues and social media connections with whome they share their experiences.</strong>
           </div>
+          <Link to="/outcome/">
+            <button className="exploreBtn exploreBtn--offer">
+              Explore <i className="fas fa-angle-right"></i>
+            </button>
+          </Link>
 
         </div>
 
-      </div>
+      </div >
     </div >);
   }
 }

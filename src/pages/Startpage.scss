@@ -9,8 +9,9 @@ $maxMobileHeight: 667px; //based off ipad pro
    ================================== */
 
 .startPageWrapper {
-  height: 100vh;
+  height: 99.5vh;
   overflow-y: hidden;
+  vertical-align: top;
 }
 
 .startPage {
@@ -186,6 +187,54 @@ $maxMobileHeight: 667px; //based off ipad pro
 
   &--outcome {
     background: $outcomeColor;
+  }
+}
+
+.exploreBtn {
+  background: transparent;
+  color: $regularBlack;
+  border: 2px solid $regularBlack;
+  cursor: pointer;
+
+  &:hover {
+    color: #ffffff;
+    background: $regularBlack;
+    border-color: $regularBlack;
+  }
+
+  &--inspire {
+    color: $inspireColor;
+    border-color: $inspireColor;
+  }
+
+  &--shop {
+    color: $shopColor;
+    border-color: $shopColor;
+  }
+
+  &--offer {
+    color: $offerColor;
+    border-color: $offerColor;
+  }
+
+  &--purchase {
+    color: $purchaseColor;
+    border-color: $purchaseColor;
+  }
+
+  &--pretrip {
+    color: $pretripColor;
+    border-color: $pretripColor;
+  }
+
+  &--trip {
+    color: $tripColor;
+    border-color: $tripColor;
+  }
+
+  &--outcome {
+    color: $outcomeColor;
+    border-color: $outcomeColor;
   }
 }
 

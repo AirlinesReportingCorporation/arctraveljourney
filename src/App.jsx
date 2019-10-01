@@ -1,13 +1,8 @@
 import 'react-app-polyfill/ie11';
-import React, {Component} from "react";
-import {MemoryRouter as Router, Route, Link} from "react-router-dom";
-import {withRouter} from "react-router";
-import {version, Button, Drawer} from "antd";
-import {AnimatedSwitch} from 'react-router-transition';
-import {Motion, spring} from 'react-motion';
-import {hot} from 'react-hot-loader';
+import React, { Component } from "react";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { hot } from 'react-hot-loader';
 import Startpage from './pages/Startpage.jsx';
-import Slidenav from './components/Slidenav.jsx';
 
 
 
@@ -43,7 +38,7 @@ const pageTransitions = {
 };
 
 function mapStyles(styles) {
-  return {transform: `translateY(${styles.offset}%)`};
+  return { transform: `translateY(${styles.offset}%)` };
 }
 
 class App extends Component {
@@ -59,25 +54,31 @@ class App extends Component {
 
     this.getRoute = this.getRoute.bind(this);
   }
+  
+  componentDidupdate(){
+    console.log("did update");
+  }
 
   //getRoute on route Navigation
   //update state for slide controls on navigation if needed
   getRoute(rPath, sCount) {
-    this.setState({routePath: rPath});
+    this.setState({ routePath: rPath });
     if (rPath.indexOf("navigation") > -1) {
-      this.setState({showSlideCtrls: false});
+      this.setState({ showSlideCtrls: false });
     } else {
-      this.setState({showSlideCtrls: true});
+      this.setState({ showSlideCtrls: true });
     }
 
-    this.setState({slideCount: sCount});
+    this.setState({ slideCount: sCount });
 
-    if(rPath == "/") {
-      this.setState({slideDirection: "horizontal"});
+    if (rPath == "/") {
+      this.setState({ slideDirection: "horizontal" });
     }
     else {
-      this.setState({slideDirection: "vertical"});
+      this.setState({ slideDirection: "vertical" });
     }
+
+    window.scrollTo(0,0);
   }
 
   render() {
@@ -88,29 +89,16 @@ class App extends Component {
 
     return (<div>
       <Router>
-        <div className="logVars">
-          <strong>React App State</strong>
-          | &nbsp; Path:
-          <span>{this.state.routePath}</span>
-          &mdash; Show Ctrls:
-          <span>{showSlideCtrls}</span>Slide Count:
-          <span>{this.state.slideCount}</span>
-          Slide Dir:
-          <span>{this.state.slideDirection}</span>
-        </div>
         <div className="pageWrapper">
-            <Route path="/" exact render={(props) => <Startpage {...props} routeUpdate={this.getRoute}/>}/>
-            <Route path="/navigation/" render={(props) => <Navigation {...props} routeUpdate={this.getRoute}/>}/>
-            <Route path="/inspire/" render={(props) => <Inspire {...props} routeUpdate={this.getRoute}/>}/>
-            <Route path="/shop/" render={(props) => <Shop {...props} routeUpdate={this.getRoute}/>}/>
-            <Route path="/offer/" render={(props) => <Offer {...props} routeUpdate={this.getRoute}/>}/>
-            <Route path="/purchase/" render={(props) => <Purchase {...props} routeUpdate={this.getRoute}/>}/>
-            <Route path="/pretrip/" render={(props) => <Pretrip {...props} routeUpdate={this.getRoute}/>}/>
-            <Route path="/trip/" render={(props) => <Trip {...props} routeUpdate={this.getRoute}/>}/>
-            <Route path="/outcome/" render={(props) => <Outcome {...props} routeUpdate={this.getRoute}/>}/>
-
-
-
+          <Route path="/" exact render={(props) => <Startpage {...props} routeUpdate={this.getRoute} />} />
+          <Route path="/navigation/" render={(props) => <Navigation {...props} routeUpdate={this.getRoute} />} />
+          <Route path="/inspire/" render={(props) => <Inspire {...props} routeUpdate={this.getRoute} />} />
+          <Route path="/shop/" render={(props) => <Shop {...props} routeUpdate={this.getRoute} />} />
+          <Route path="/offer/" render={(props) => <Offer {...props} routeUpdate={this.getRoute} />} />
+          <Route path="/purchase/" render={(props) => <Purchase {...props} routeUpdate={this.getRoute} />} />
+          <Route path="/pretrip/" render={(props) => <Pretrip {...props} routeUpdate={this.getRoute} />} />
+          <Route path="/trip/" render={(props) => <Trip {...props} routeUpdate={this.getRoute} />} />
+          <Route path="/outcome/" render={(props) => <Outcome {...props} routeUpdate={this.getRoute} />} />
         </div>
 
       </Router>

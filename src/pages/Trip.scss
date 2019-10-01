@@ -1,66 +1,28 @@
 @import 'Pagepane';
 
 .tripPage.pagePaneContainer {
-  .titleSlide .pagePaneContent {
-    .section1 {
-      background: $tripColor;
+  .titleSlide {
+    background: $tripColor;
 
-      h1 {
-        background: #ffffff;
-        color: $tripColor;
-      }
-
-      .sep {
-        background: $tripColor;
-      }
-
-      img {
-        left: 40px;
-        bottom: -63px;
-      }
+    .slide-title {
+      color: $tripColor;
     }
 
-    .section2 {
-      background: #ffffff;
-
-      p {
-        color: $tripColor;
-        padding-top: 100px;
-        margin-bottom: 50px;
-      }
-
-      button {
-        background: $tripColor;
-      }
+    img {
+      max-height: 500px;
+      max-width: 100%;
+      width: auto;
     }
   }
 
-  .bulletSlide {}
-
-  .quoteSlide {}
 
   .todayTomorrowSlide {
-    &.tts2 {
-      h2 {
-        font-size: 65px;
-        line-height: 70px;
-      }
-    }
-
-    h2 {
-      padding-left: 120px;
-      padding-right: 160px;
+    .todayTomorrowContainer .todayTomorrowMain {
+      min-height: 550px;
     }
   }
 
   .endSlide {
-    background: url("../img/TripEND.jpg") top center no-repeat;
-    background-size: contain;
-
-    h2 {
-      font-size: 45px;
-      line-height: 55px;
-    }
 
     button {
       background: $outcomeColor;
@@ -68,59 +30,39 @@
   }
 
   .blueSlide {
-    background: url("../img/TripBLUE.jpg") center center no-repeat;
-    background-size: contain;
 
-    h2 {
-      font-size: 70px;
-      line-height: 80px;
-      color: #ffffff;
-      margin-top: 300px;
-      padding-right: 100px;
-    }
-  }
-
-  .textSlide {
-    height: 1920px;
-    overflow: hidden;
-
-    .textSlideContent {
-      font-size: 90px;
-      line-height: 100px;
-      padding-top: 120px;
-    }
   }
 
   .customTripSlide {
-    background: #ffffff;
+    background: #f6f6f6;
     height: 100%;
-    padding: 120px 80px;
+    padding: 60px 0;
     color: #000000;
 
     .customTripSlideSub {
       color: #000000;
-      font-size: 72px;
-      line-height: 100px;
-      font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
+      font-size: 2rem;
+      line-height: 1.2px;
+      font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+      font-weight: 900;
     }
 
     h1 {
       color: #000000;
-      font-size: 100px;
-      line-height: 110px;
+      font-size: 3rem;
+      line-height: 1.2;
     }
 
     p {
-      font-family: SourceSansPro-Regular, helvetica, arial, sans-serif;
+      font-family: "Source Sans Pro", helvetica, arial, sans-serif;
       font-size: 70px;
-      line-height: 80px;
-      margin-bottom: 80px;
-      margin-top: 80px;
-      padding-right: 80px;
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 1.2;
     }
 
     .stepOrderContainer {
-      padding-top: 80px;
+      padding-top: 40px;
     }
 
     .stepOrder {
@@ -129,21 +71,28 @@
       background: -o-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
       background: -moz-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
       background: linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-      padding: 80px 60px;
-      box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
+      padding: 40px 30px;
+      min-height: 400px;
       font-size: 36px;
       margin-bottom: 40px;
       position: relative;
       font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
 
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
+        cursor: pointer;
+      }
+
       img {
-        position: absolute;
-        right: 80px;
-        top: 60px;
+        padding: 15px;
+        width: 100%;
       }
 
       strong {
-        text-decoration: underline;
+        font-family: "Source Sans Pro", helvetica, sans-serif;
+        //text-decoration: underline;
+        font-weight: 900;
+        //text-decoration: underline;
       }
     }
   }
@@ -211,13 +160,13 @@
 
   .infoDrawer {
     .bundlesP {
-      font-size: 36px;
-      line-height: 46px;
+      font-size: 1.5rem;
+      line-height: 1.2;
     }
 
     .bottomP {
-      font-size: 35px;
-      line-height: 45px;
+      font-size: 1.5rem;
+      line-height: 1.2;
     }
 
     img.chartIMG {
@@ -226,7 +175,7 @@
       border: none;
       top: auto;
       left: auto;
-      padding-top: 120px;
+      padding-top: 20px;
     }
 
     img.closeIcon {
@@ -237,19 +186,21 @@
   .order,
   .payment,
   .settlement {
-    font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
-    font-size: 100px;
-    line-height: 110px;
+    font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+    font-weight: 900;
+    font-size:  3rem;
+    line-height: 1.2;
     padding-bottom: 40px;
+    padding-top: 0;
   }
 }
 
 .blueDrawer.blueDrawerTrip.ant-drawer {
   h2 {
-    font-size: 60px;
-    font-family: SourceSansPro-Black, arial, sans-serif;
-    margin-top: 200px;
-    margin-bottom: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-family: "Source Sans Pro", arial, sans-serif;
+    font-weight: 900;
   }
 
   .blueList,

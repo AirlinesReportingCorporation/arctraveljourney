@@ -1,50 +1,25 @@
 @import 'Pagepane';
 
 .pretripPage.pagePaneContainer {
-  .titleSlide .pagePaneContent {
-    .section1 {
-      background: $pretripColor;
+  .titleSlide {
+    background: $pretripColor;
 
-      h1 {
-        background: #ffffff;
-        color: $pretripColor;
-      }
-
-      .sep {
-        background: $pretripColor;
-      }
-
-      img {
-        bottom: -63px;
-        left: 280px;
-      }
+    .slide-title {
+      color: $pretripColor;
     }
 
-    .section2 {
-      background: #ffffff;
-
-      p {
-        color: $pretripColor;
-        padding-top: 100px;
-        margin-bottom: 50px;
-      }
-
-      button {
-        background: $pretripColor;
-      }
+    img {
+      max-height: 500px;
+      max-width: 100%;
+      width: auto;
     }
   }
 
-  .bulletSlide {
-    background: #222222 url("../img/pretripSlider.png") center center no-repeat;
-    background-size: cover;
-    height: 100%;
 
-    h1 {
-      color: #ffffff;
-      font-size: 90px;
-      margin-right: 160px;
-    }
+  .bulletSlide {
+    
+    width: 100%;
+    max-width: 100%;
 
     .firstFlipSlide {
       color: #ffffff;
@@ -57,10 +32,7 @@
     }
 
     .bulletSub {
-      color: #ffffff;
-      padding-left: 120px;
-      padding-right: 160px;
-      font-size: 45px;
+      font-size: 2rem;
     }
   }
 
@@ -90,14 +62,13 @@
   }
 
   .todayTomorrowSlide {
-    .todayTomorrowContainer {
-      height: 1120px;
+    .todayTomorrowContainer .todayTomorrowMain {
+      min-height: 500px;
     }
   }
 
   .endSlide {
-    background: url("../img/Pre-TripEND.jpg") top center no-repeat;
-    background-size: contain;
+    background: #f6f6f6;
 
     button {
       background: $tripColor;

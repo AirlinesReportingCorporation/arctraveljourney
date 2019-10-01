@@ -12,6 +12,8 @@ import Slidenav from '../components/Slidenav.jsx';
 import Pageslide from '../components/Pageslide.jsx';
 import Flipslide from '../components/Flipslide.jsx';
 import Todaytomorrow from '../components/Todaytomorrow.jsx';
+import Topnav from '../components/Topnav.jsx';
+import Footer from '../components/Footer.jsx';
 
 class Inspire extends React.Component {
   constructor(props) {
@@ -72,6 +74,24 @@ class Inspire extends React.Component {
     }
 
     return (<div className="inspirePage pagePaneContainer animated fadeIn" ref={(e) => this.slideMenu = e}>
+      <Topnav />
+      <Pageslide>
+        <div className="titleSlide">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-md-6">
+                <div className="slide-subtitle slide-subtitle--step">Step 1</div>
+                <div className="slide-title slide-title--inspire">Inspire.</div>
+                <div className="slide-content"><strong>The traveler is inspired to take a trip.</strong> Inspiration can be found everywhere, and it can look different: business trips, family vacations, luxury getaways, etc.</div>
+              </div>
+              <div className="col-md-6">
+                <img src="https://www2.arccorp.com/globalassets/traveljourney/img/inspire1.png" alt="Inspire Header"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Pageslide>
+
       <Pageslide>
         <div className="bulletSlide">
           <h1>The inspiration to travel is everywhere, and it can come from a number of sources.</h1>
@@ -79,7 +99,7 @@ class Inspire extends React.Component {
             <div className="row">
               <div className="col-lg-4">
                 <Flipslide frontSide={<div > <h2>Business Trip</h2>
-                  <img src="img/businessTrip.png" alt="Business Trip" />
+                  <img src="https://www2.arccorp.com/globalassets/traveljourney/img/businessTrip.png" alt="Business Trip" />
                   <div className="touchText">Touch to see more</div>
                 </div>} backSide={<div > <div>Corporate travelers are as diverse as leisure travelers, with different needs and preferences. They may travel twice a year or 40 times a year. They may want to minimize their time away from home, or they may prefer extended “bleisure” trips.
               </div> < div className="touchBackBtnContainer" > <div className="touchBackBtn">Touch to go back</div>
@@ -88,7 +108,7 @@ class Inspire extends React.Component {
               </div>
               <div className="col-lg-4">
                 <Flipslide frontSide={<div > <h2>Family Vacation</h2>
-                  <img src="img/familyVacation.png" alt="Business Trip" />
+                  <img src="https://www2.arccorp.com/globalassets/traveljourney/img/familyVacation.png" alt="Business Trip" />
                   <div className="touchText">Touch to see more</div>
                 </div>} backSide={<div > <div>Travel advisors are getting creative when planning family vacations. The 2019 Virtuoso Luxe Report identified multigenerational travel as the year’s top vacation trend. In particular, service-oriented travel, genealogy trips and family-friendly cruises are gaining popularity.
                 <div className="touchBackBtnContainer">
@@ -100,7 +120,7 @@ class Inspire extends React.Component {
               <div className="col-lg-4">
                 <Flipslide frontSide={<div > <h2>Long-Awaited
                 <br />Getaway</h2>
-                  <img src="img/longAwaitedGetaway.png" alt="Business Trip" />
+                  <img src="https://www2.arccorp.com/globalassets/traveljourney/img/longAwaitedGetaway.png" alt="Business Trip" />
                   <div className="touchText">Touch to see more</div>
                 </div>} backSide={<div > <div>Travel agencies specializing in luxury travel are on the rise. More than half of agency respondents in a recent Phocuswright study, co-sponsored by ARC, indicated that they specialize in river cruises, and 16% specialize in selling bespoke, a highly customized segment of luxury travel.<div className="touchBackBtnContainer">
                   <div className="touchBackBtn">Touch to go back</div>
@@ -122,7 +142,7 @@ class Inspire extends React.Component {
             <div className="row">
               <div className="col-lg-4">
                 <div className="quotePhoto">
-                  <img src="img/lauriQuote.png" alt="Lauri Reishus" />
+                  <img src="https://www2.arccorp.com/globalassets/traveljourney/img/lauriQuote.png" alt="Lauri Reishus" />
                 </div>
                 <div className="quoteMeta">
                   LAURI REISHUS<br />
@@ -142,11 +162,8 @@ class Inspire extends React.Component {
       </Pageslide>
       <Pageslide>
         <div className="todayTomorrowSlide">
-          <h2>How can we get
-            <br />and maintain<br />
-            the traveler's
-            <br />
-            attention?</h2>
+          <h2>How can we get and maintain
+            the traveler's attention?</h2>
           <Todaytomorrow today={<div> By analyzing travel data and identifying traveler trends,
             travel brands can create targeted promotions that break through the noise,
             ultimately inspiring active travel planning.</div>} tomorrow={<div> Industry initiatives like < span onClick={
@@ -172,7 +189,7 @@ class Inspire extends React.Component {
                 </div>
               </div>
               <div className="col-md-2">
-              <img src="img/allcopyInspire.png" alt="" />
+                <img src="https://www2.arccorp.com/globalassets/traveljourney/img/allcopyInspire.png" alt="" />
               </div>
 
             </div>
@@ -183,19 +200,29 @@ class Inspire extends React.Component {
       </Pageslide>
       <Pageslide>
         <div className="endSlide">
-          <h2>Messages that are clearly aligned with travelers' individual preferences are the ones that resonate - both today and in tomorrow's environment, which will be even more data-rich.</h2>
-          <Link to={{
-            pathname: '/',
-            anchor: 'shop'
-          }}>
-            <button className="animated pulse slower infinite">Next Step: Shop</button>
-          </Link>
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-md-6">
+                <h2>Next Step: Shop</h2>
+                <p>Messages that are clearly aligned with travelers' individual preferences are the ones that resonate - both today and in tomorrow's environment, which will be even more data-rich.</p>
+                <Link to="/shop/">
+                  <button className="animated pulse slower infinite">Explore: Shop</button>
+                </Link>
+              </div>
+              <div className="col-md-6">
+                <img src="https://www2.arccorp.com/globalassets/traveljourney/img/inspireend.jpg" alt="Inspire End" />
+              </div>
+            </div>
+
+          </div>
         </div>
       </Pageslide>
-      <Drawer placement="right" width="960px" closable={true} onClose={this.onClose} visible={this.state.visible}>
+      <Footer />
+      <Drawer placement="right" width="50%" closable={true} onClose={this.onClose} visible={this.state.visible}>
         <div className="infoDrawer">
-          {drawerContent}
-          <img onClick={this.onClose} src="img/closeIcon.png" alt="Close" />
+          <div className="row align-items-center">
+            {drawerContent}
+          </div>
         </div>
       </Drawer>
 

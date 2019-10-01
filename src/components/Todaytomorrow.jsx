@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 class Todaytomorrow extends React.Component {
@@ -16,11 +16,11 @@ class Todaytomorrow extends React.Component {
 
   flipClick() {
     if (this.state.curState == "Today" && this.props.backSide != "") {
-      this.setState({curState: "Tomorrow"});
-      this.setState({prevState: "Today"});
+      this.setState({ curState: "Tomorrow" });
+      this.setState({ prevState: "Today" });
     } else {
-      this.setState({curState: "Today"});
-      this.setState({prevState: "Tomorrow"});
+      this.setState({ curState: "Today" });
+      this.setState({ prevState: "Tomorrow" });
     }
   }
 
@@ -41,16 +41,25 @@ class Todaytomorrow extends React.Component {
     }
 
     return (<div className="todayTomorrowContainer">
-      <div className={'todayTomorrowMain ' + curStyles}>
-        <div className="todayTomorrowMainTitle">{this.state.curState}</div>
-        <div className="todayTomorrowMainContent">
-          {slideContent}
-        </div>
-      </div>
-      <div onClick={this.flipClick} className={"todayTomorrowSecondary animated pulse infinite " + prevStyles}>
-        <div className="todayTomorrowSecondaryContent">
-          <div className="todayTomorrowTouch">Touch to See</div>
-          <div className="todayTomorrowSecondaryTitle">{this.state.prevState}</div>
+
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6">
+            <div className="todayTomorrowMain todayBG">
+              <div className="todayTomorrowMainTitle">Today</div>
+              <div className="todayTomorrowMainContent">
+                {this.props.today}
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-6">
+            <div className="todayTomorrowMain tomorrowBG">
+              <div className="todayTomorrowMainTitle">Tomorrow</div>
+              <div className="todayTomorrowMainContent">
+                {this.props.tomorrow}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>);

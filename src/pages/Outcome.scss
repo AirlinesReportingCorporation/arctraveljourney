@@ -1,81 +1,44 @@
-@import 'Pagepane';
+@import "Pagepane";
 
 .outcomePage.pagePaneContainer {
-  .titleSlide .pagePaneContent {
-    .section1 {
-      background: $outcomeColor;
+  .titleSlide {
+    background: $outcomeColor;
 
-      h1 {
-        background: #ffffff;
-        color: $outcomeColor;
-      }
-
-      .sep {
-        background: #ffffff;
-      }
-
-      img {
-        bottom: -63px;
-      }
-
-      p {
-        font-size: 32px;
-        padding-right: 160px;
-      }
-    }
-
-    .section2 {
-      background: #ffffff;
-
-      p {
-        color: $outcomeColor;
-        padding-top: 100px;
-        margin-bottom: 50px;
-      }
-
-      button {
-        background: $outcomeColor;
-      }
+    .slide-title {
+      color: $outcomeColor;
     }
   }
 
-  .bulletSlide {
-    h1 {
-      margin-bottom: 160px;
-    }
-  }
+
 
   .bulletSlide.bulletSlide2 {
-    background: #222222 url("../img/OutcomeBLUE.jpg") center center no-repeat;
+    background: #222222;
     background-size: cover;
     height: 100%;
+    max-width: 100%;
+
+    .sliderContent {
+      height: auto;
+    }
+
 
     h1 {
       color: #ffffff;
-      font-size: 100px;
-      line-height: 110px;
-      margin-right: 160px;
-      margin-top: 400px;
-      font-family: SourceSansPro-Regular, helvetica, arial, sans-serif;
     }
 
     .firstFlipSlide {
       color: #ffffff;
-      font-size: 52px;
-      line-height: 63px;
-      padding-top: 200px;
-      padding-left: 80px;
-      padding-right: 80px;
+      font-size: 2rem;
+      line-height: 1.2;
+      padding: 40px;
       text-align: left;
     }
 
     .customFlip {
       color: #ffffff;
-      font-size: 55px;
-      line-height: 67px;
-      padding-top: 200px;
-      padding-left: 80px;
-      padding-right: 80px;
+      font-size: 2rem;
+      line-height: 1.2;
+      padding: 40px;;
       text-align: left;
     }
 
@@ -91,28 +54,13 @@
     }
   }
 
-  .quoteSlide {}
-
   .todayTomorrowSlide {
-    .todayTomorrowContainer {
-      height: 1180px;
-    }
-  }
-
-  .textSlide {
-    .textSlideContent {
-      font-size: 58px;
+    .todayTomorrowContainer .todayTomorrowMain {
+      min-height: 600px;
     }
   }
 
   .endSlide {
-    background: url("../img/outcomeEND.jpg") top center no-repeat;
-    background-size: contain;
-
-    h2 {
-      font-size: 45px;
-      line-height: 50px;
-    }
 
     button {
       background: $purchaseColor;

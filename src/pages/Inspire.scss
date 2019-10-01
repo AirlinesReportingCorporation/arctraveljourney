@@ -30,18 +30,14 @@
     }
   }
 
-  .bulletSlide {}
-
-  .quoteSlide {}
-
   .dataSlide {
     background: url("../img/inspireEnd.png") center center no-repeat;
     background-size: cover;
   }
 
   .endSlide {
-    background: url("../img/inspireEND.jpg") top center no-repeat;
-    background-size: contain;
+   // background: url("../img/inspireEND.jpg") center center no-repeat;
+    background-size: cover;
 
     h2 {
       font-size: 45px;

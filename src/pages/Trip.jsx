@@ -1,7 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import {MemoryRouter as Router, Route, Link} from "react-router-dom";
-import {Modal, Drawer} from 'antd';
+import { MemoryRouter as Router, Route, Link } from "react-router-dom";
+import { Modal, Drawer } from 'antd';
 
 import './Trip.scss';
 import Slider from '../components/Pageslide.jsx';
@@ -9,6 +9,8 @@ import Slidenav from '../components/Slidenav.jsx';
 import Pageslide from '../components/Pageslide.jsx';
 import Flipslide from '../components/Flipslide.jsx';
 import Todaytomorrow from '../components/Todaytomorrow.jsx';
+import Topnav from '../components/Topnav.jsx';
+import Footer from '../components/Footer.jsx';
 
 class Trip extends React.Component {
   constructor(props) {
@@ -37,29 +39,29 @@ class Trip extends React.Component {
   };
 
   handleOk() {
-   this.setState({
-     visibleModal: false,
-   });
- };
+    this.setState({
+      visibleModal: false,
+    });
+  };
 
- handleCancel() {
-   this.setState({
-     visibleModal: false,
-   });
- };
+  handleCancel() {
+    this.setState({
+      visibleModal: false,
+    });
+  };
 
   showDrawer(content) {
-    this.setState({drawerContent: content});
-    this.setState({visible: true});
+    this.setState({ drawerContent: content });
+    this.setState({ visible: true });
   };
 
   showDrawerBlue() {
-    this.setState({visibleBlue: true});
+    this.setState({ visibleBlue: true });
   }
 
   onClose() {
-    this.setState({visible: false});
-    this.setState({visibleBlue: false});
+    this.setState({ visible: false });
+    this.setState({ visibleBlue: false });
   };
 
   componentDidMount() {
@@ -73,18 +75,18 @@ class Trip extends React.Component {
     let drawerContent = this.state.drawerContent;
     let modalContent = this.state.modalContent;
 
-    if(modalContent == "firstdeparture") {
+    if (modalContent == "firstdeparture") {
       modalContent = <div><h2>First Flight Departure</h2> <p>Things don't always go according to plan. Flight delays are often inevitable, whether caused by inclement weather or an operational or technology issue.</p></div>;
-     }
-     else if(modalContent == "missed") {
-       modalContent = <div><h2>Missed Connection</h2> <p>Delays push back the rest of the traveler's itinerary and can result in a missed connection. When a traveler needs to rebook, their options for changing their ticket vary depending on where the ticket was purchased.</p></div>;
-     }
-     else if (modalContent == "transportation") {
-       modalContent = <div><h2>Transportation from Airport</h2> <p>If the traveler arranged a ride from the airport to their destination, their plans need to be adjusted. In the future, <strong>real-time data transmission</strong> will be valuable. If the traveler's arrival is delayed by four hours, the airline or agency could potentially relay status updates to the car company, making them aware of the traveler’s delay. Status updates could also be delivered to corporate travel managers, enhancing duty of care, and to the hotel, which may see an opportunity to enhance the traveler’s stay.</p></div>;
-     }
-     else if(modalContent == "rebook") {
-       modalContent = <div><h2>Rebook</h2> <p>If the traveler purchased their ticket through a travel agency or TMC, either that agency or the airline may make changes to the ticket. If they purchased through the airline, a travel agency or TMC is not able to service the ticket. Channel-agnostic service will enable TMCs to service all their clients’ airline tickets, regardless of the purchase channel. This will require efficient, real-time transmission of data. </p></div>;
-     }
+    }
+    else if (modalContent == "missed") {
+      modalContent = <div><h2>Missed Connection</h2> <p>Delays push back the rest of the traveler's itinerary and can result in a missed connection. When a traveler needs to rebook, their options for changing their ticket vary depending on where the ticket was purchased.</p></div>;
+    }
+    else if (modalContent == "transportation") {
+      modalContent = <div><h2>Transportation from Airport</h2> <p>If the traveler arranged a ride from the airport to their destination, their plans need to be adjusted. In the future, <strong>real-time data transmission</strong> will be valuable. If the traveler's arrival is delayed by four hours, the airline or agency could potentially relay status updates to the car company, making them aware of the traveler’s delay. Status updates could also be delivered to corporate travel managers, enhancing duty of care, and to the hotel, which may see an opportunity to enhance the traveler’s stay.</p></div>;
+    }
+    else if (modalContent == "rebook") {
+      modalContent = <div><h2>Rebook</h2> <p>If the traveler purchased their ticket through a travel agency or TMC, either that agency or the airline may make changes to the ticket. If they purchased through the airline, a travel agency or TMC is not able to service the ticket. Channel-agnostic service will enable TMCs to service all their clients’ airline tickets, regardless of the purchase channel. This will require efficient, real-time transmission of data. </p></div>;
+    }
 
 
     if (drawerContent == "order") {
@@ -98,39 +100,39 @@ class Trip extends React.Component {
               <tbody>
                 <tr>
                   <td>Mobile Check-In</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Seat Selection</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Boarding Pass</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Airport Transportation</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Checked Bags</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>TSA</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Lounge Access</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Find the Gate</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Board the Flight</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
 
               </tbody>
@@ -141,39 +143,39 @@ class Trip extends React.Component {
               <tbody>
                 <tr>
                   <td>Departure</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>In-Flight Food and Beverage</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>In-Flight Wi-Fi</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>In-Flight Entertainment</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Flight Arrives</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Get Checked Bags</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Go Through Customs</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Transportation from Airport</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Arrive at Destination</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
               </tbody>
             </table>
@@ -192,59 +194,59 @@ class Trip extends React.Component {
               <tbody>
                 <tr>
                   <td>Mobile Check-In</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Seat Selection</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Boarding Pass</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Airport Transportation</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Checked Bags</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>TSA</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Lounge Access</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Find the Gate</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Board the Flight</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Board First Flight</td>
-                  <td><img src="img/warning.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/warning.png" /></td>
                 </tr>
                 <tr>
                   <td>First Flight Departure</td>
-                  <td><img className="animated infinite tada slow" onClick={this.showModal.bind(this, 'firstdeparture')} src="img/warning.png"/></td>
+                  <td><img className="animated infinite tada slow" onClick={this.showModal.bind(this, 'firstdeparture')} src="https://www2.arccorp.com/globalassets/traveljourney/img/warning.png" /></td>
                 </tr>
                 <tr>
                   <td>In-Flight Food and Beverage</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>In-Flight Wi-Fi</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>In-Flight Entertainment</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
               </tbody>
             </table>
@@ -254,51 +256,51 @@ class Trip extends React.Component {
               <tbody>
                 <tr>
                   <td>First Flight Arrives</td>
-                  <td><img src="img/warning.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/warning.png" /></td>
                 </tr>
                 <tr>
                   <td>Find the Gate</td>
-                  <td><img  src="img/warning.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/warning.png" /></td>
                 </tr>
                 <tr>
                   <td>Missed Connection</td>
-                  <td><img className="animated infinite tada slow" onClick={this.showModal.bind(this, 'missed')} src="img/X.png"/></td>
+                  <td><img className="animated infinite tada slow" onClick={this.showModal.bind(this, 'missed')} src="https://www2.arccorp.com/globalassets/traveljourney/img/X.png" /></td>
                 </tr>
                 <tr>
                   <td>Rebook</td>
-                  <td><img className="animated infinite tada slow" onClick={this.showModal.bind(this, 'rebook')} src="img/warning.png"/></td>
+                  <td><img className="animated infinite tada slow" onClick={this.showModal.bind(this, 'rebook')} src="https://www2.arccorp.com/globalassets/traveljourney/img/warning.png" /></td>
                 </tr>
                 <tr>
                   <td>Find the Gate</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Board New Flight</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>New Flight Departs</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>New Flight Arrives</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Get Checked Bags</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Go Through Customs</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
                 <tr>
                   <td>Transportation from Airport</td>
-                  <td><img className="animated infinite tada slow" onClick={this.showModal.bind(this, 'transportation')} src="img/warning.png"/></td>
+                  <td><img className="animated infinite tada slow" onClick={this.showModal.bind(this, 'transportation')} src="https://www2.arccorp.com/globalassets/traveljourney/img/warning.png" /></td>
                 </tr>
                 <tr>
                   <td>Arrive at Destination</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                 </tr>
               </tbody>
             </table>
@@ -322,7 +324,7 @@ class Trip extends React.Component {
                 </tr>
                 <tr>
                   <td>Seat Selection</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                   <td className="checkMarkExtra">Economy Plus</td>
                 </tr>
                 <tr>
@@ -332,22 +334,22 @@ class Trip extends React.Component {
                 </tr>
                 <tr>
                   <td>Airport Transportation</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                   <td className="checkMarkExtra">Pre-arranged</td>
                 </tr>
                 <tr>
                   <td>Checked Bags</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                   <td className="checkMarkExtra">Pre-arranged</td>
                 </tr>
                 <tr>
                   <td>TSA</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                   <td className="checkMarkExtra">TSA Pre&#10003;&reg;</td>
                 </tr>
                 <tr>
                   <td>Lounge Access</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                   <td className="checkMarkExtra">Pre-arranged</td>
                 </tr>
                 <tr>
@@ -357,7 +359,7 @@ class Trip extends React.Component {
                 </tr>
                 <tr>
                   <td>Board the Flight</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                   <td className="checkMarkExtra">Priority Boarding</td>
                 </tr>
                 <tr>
@@ -367,12 +369,12 @@ class Trip extends React.Component {
                 </tr>
                 <tr>
                   <td>In-Flight Food and Beverage</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                   <td className="checkMarkExtra">Pre-purchase</td>
                 </tr>
                 <tr>
                   <td>In-Flight Wi-Fi</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                   <td className="checkMarkExtra">Pre-purchase</td>
                 </tr>
                 <tr>
@@ -397,7 +399,7 @@ class Trip extends React.Component {
                 </tr>
                 <tr>
                   <td>Transportation from Airport</td>
-                  <td><img src="img/checkmark.png"/></td>
+                  <td><img src="https://www2.arccorp.com/globalassets/traveljourney/img/checkmark.png" /></td>
                   <td className="checkMarkExtra">Pre-arranged</td>
                 </tr>
                 <tr>
@@ -424,13 +426,40 @@ class Trip extends React.Component {
     }
 
     return (<div className="tripPage pagePaneContainer" ref={(e) => this.slideMenu = e}>
+      <Topnav />
+      <Pageslide>
+        <div className="titleSlide">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-md-6">
+                <div className="slide-subtitle slide-subtitle--step">Step 5</div>
+                <div className="slide-title slide-title--inspire">Trip.</div>
+                <div className="slide-content"><strong>The traveler embarks on their journey.</strong> With dozens of touch points on the day of travel, brands have many opportunities to reduce friction.</div>
+              </div>
+              <div className="col-md-6">
+                <img src="https://www2.arccorp.com/globalassets/traveljourney/img/trip.png" alt="Trip Header" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Pageslide>
       <Pageslide>
         <div className="textSlide GradientGreen">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-md-10">
+                <div className="textSlideContent">
+                  The trip experience begins with mobile check-in 24 hours in advance and spans the traveler’s journey to and through the airport, as well as boarding, flight and transport to their destination.
+                </div>
 
-          <div className="textSlideContent">
-            The trip experience begins with mobile check-in 24 hours in advance and spans the traveler’s journey to and through the airport, as well as boarding, flight and transport to their destination.
+              </div>
+              <div className="col-md-2">
+                <img src="https://www2.arccorp.com/globalassets/traveljourney/img/allcopyTrip.png" alt="" />
+              </div>
+            </div>
           </div>
-          <img src="img/allcopyTrip.png" alt=""/>
+
+
         </div>
       </Pageslide>
       <Pageslide>
@@ -440,28 +469,46 @@ class Trip extends React.Component {
             but it is still fragmented in many ways. The customer expects an easy,
             seamless and customizable buying experience — yet making changes to a ticket can be challenging, and add-on purchases (checked bag, wi-fi, in-flight meal) are each made on a separate transaction.</div>} tomorrow={<div> Because personalized products have already been purchased at the point of sale,
             the traveler can enjoy a <strong> frictionless experience</strong>,
-            which has been customized to their personal preferences. In a <span onClick = {this.showDrawer.bind(this, 'oneorder')} >ONE Order</span> environment, ancillary purchases will be connected to the traveler’s order,
+            which has been customized to their personal preferences. In a <span onClick={this.showDrawer.bind(this, 'oneorder')} >ONE Order</span> environment, ancillary purchases will be connected to the traveler’s order,
             so all their data will be centralized in one location.</div>}></Todaytomorrow>
         </div>
       </Pageslide>
       <Pageslide>
         <div className="customTripSlide">
-          <h1>The Day of Travel</h1>
-          <p>With dozens of touch points on the day of travel, brands have an opportunity to create a more seamless experience for their travelers.</p>
-          <div className="stepOrderContainer">
-            <div className="stepOrder" onClick={this.showDrawer.bind(this, 'order')}>
-              <strong>In a Perfect World</strong>
-              <img src="img/1.png" alt=""/>
-            </div>
-            <div className="stepOrder" onClick={this.showDrawer.bind(this, 'payment')}>
-              <strong>Delays & Missed Connections</strong>
-              <img src="img/2.png" alt=""/>
-            </div>
-            <div className="stepOrder" onClick={this.showDrawer.bind(this, 'settlement')}>
-              <strong>Bundles & Corporate Policy</strong>
-              <img src="img/3.png" alt=""/>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12">
+                <h1>The Day of Travel</h1>
+                <p>With dozens of touch points on the day of travel, brands have an opportunity to create a more seamless experience for their travelers.</p>
+                <div className="stepOrderContainer">
+                  <div className="row">
+                    <div className="col-md-4">
+                      <div className="stepOrder" onClick={this.showDrawer.bind(this, 'order')}>
+                        <strong>In a Perfect World</strong>
+                        <img src="https://www2.arccorp.com/globalassets/traveljourney/img/1.png" alt="" />
+                      </div>
+                    </div>
+                    <div className="col-md-4">
+                      <div className="stepOrder" onClick={this.showDrawer.bind(this, 'payment')}>
+                        <strong>Delays & Missed Connections</strong>
+                        <img src="https://www2.arccorp.com/globalassets/traveljourney/img/2.png" alt="" />
+                      </div>
+                    </div>
+                    <div className="col-md-4">
+                      <div className="stepOrder" onClick={this.showDrawer.bind(this, 'settlement')}>
+                        <strong>Bundles & Corporate Policy</strong>
+                        <img src="https://www2.arccorp.com/globalassets/traveljourney/img/3.png" alt="" />
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
       </Pageslide>
       <Pageslide>
@@ -473,31 +520,45 @@ class Trip extends React.Component {
       </Pageslide>
       <Pageslide>
         <div className="blueSlide">
-          <h2>In the future, corporate travel programs can work with their TMCs and online booking tools to create in-policy bundles for road warriors. ARC’s research identifies which policy changes can contribute to more productivity, retention, wellness and trip success.
-          </h2>
-          <div className="blueContainer">
-            See top priorities of road warriors.
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                <h2>In the future, corporate travel programs can work with their TMCs and online booking tools to create in-policy bundles for road warriors. ARC’s research identifies which policy changes can contribute to more productivity, retention, wellness and trip success.
+                </h2>
+                <div className="blueContainer">
+                  See top priorities of road warriors.
             <button onClick={this.showDrawerBlue}>Tap to View</button>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
       </Pageslide>
       <Pageslide>
         <div className="endSlide">
-          <h2>The traveler has happily arrived at their destination.
-            <br/><br/>After enjoying their trip, the traveler ventures back home. (But the journey’s not over yet!)
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-md-6">
+                <h2>The traveler has happily arrived at their destination.
+            <br /><br />After enjoying their trip, the traveler ventures back home. (But the journey’s not over yet!)
           </h2>
-          <Link to={{
-              pathname: '/',
-              anchor: 'outcome'
-            }}>
-            <button className="animated pulse slower infinite">Next Step: Outcome</button>
-          </Link>
+                <Link to="/outcome/">
+                  <button className="animated pulse slower infinite">Next Step: Outcome</button> </Link>
+              </div>
+              <div className="col-md-6">
+                <img src="https://www2.arccorp.com/globalassets/traveljourney/img/tripend.jpg" alt="Inspire End" />
+              </div>
+            </div>
+
+          </div>
         </div>
       </Pageslide>
+      <Footer />
       <Drawer className="tripDrawer" placement="right" width="1080px" closable={true} onClose={this.onClose} visible={this.state.visible}>
         <div className="infoDrawer">
           {drawerContent}
-          <img className="closeIcon" onClick={this.onClose} src="img/closeIcon.png" alt="Close"/>
+
         </div>
       </Drawer>
 
@@ -506,7 +567,7 @@ class Trip extends React.Component {
           <h2>Maximizing Trip Success, Retention and Wellness</h2>
           <p >To maximize trip success, travel program managers can start making small, conscious decisions that shift their policies from a cost-focused model to a more traveler-focused model.</p>
           <div className="blueList">
-            <strong>Prioritize for:</strong><br/>
+            <strong>Prioritize for:</strong><br />
             <ul>
               <li>Better Sleep</li>
               <li>Reducing personal travel time</li>
@@ -518,32 +579,31 @@ class Trip extends React.Component {
           </div>
 
           <div className="blueList">
-            <strong>Reimburse for:</strong> <br/>
-          <ul>
-            <li>Faster airport security lines (e.g., TSA Pre&#10003;&reg;, Clear)</li>
-            <li>Priority boarding</li>
-            <li>Preferred seats</li>
-            <li>Wi-fi</li>
-            <li>Airport lounge access</li>
-            <li>Gyms, exercise classes</li>
-          </ul>
+            <strong>Reimburse for:</strong> <br />
+            <ul>
+              <li>Faster airport security lines (e.g., TSA Pre&#10003;&reg;, Clear)</li>
+              <li>Priority boarding</li>
+              <li>Preferred seats</li>
+              <li>Wi-fi</li>
+              <li>Airport lounge access</li>
+              <li>Gyms, exercise classes</li>
+            </ul>
           </div>
 
           <p className="roadSource">Source: “Traveler Friction: Insights from U.S. Road Warriors,” 2016 ARC, American Express GBT and tClara” </p>
 
-          <img className="closeIcon" onClick={this.onClose} src="img/closeIcon.png" alt="Close"/>
         </div>
       </Drawer>
 
       <Modal
-          visible={this.state.visibleModal}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-          centered
-          width="800px"
-        >
-          {modalContent}
-        </Modal>
+        visible={this.state.visibleModal}
+        onOk={this.handleOk}
+        onCancel={this.handleCancel}
+        centered
+        width="800px"
+      >
+        {modalContent}
+      </Modal>
     </div>);
   }
 }

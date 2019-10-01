@@ -1,6 +1,14 @@
 @import 'Pagepane';
 
 .offerPage.pagePaneContainer {
+  .titleSlide {
+    background: $offerColor;
+
+    .slide-title {
+      color: $offerColor;
+    }
+  }
+
   .titleSlide .pagePaneContent {
     .section1 {
       background: $offerColor;
@@ -41,40 +49,10 @@
   .quoteSlide {}
 
   .endSlide {
-    background: url("../img/offerEND.jpg") top center no-repeat;
-    background-size: contain;
-
-    h2 {
-      font-size: 55px;
-      line-height: 66px;
-    }
-
     button {
       background: $purchaseColor;
     }
   }
 
-  .textSlide {
-    .textSlideContent {
-      padding-top: 160px;
-      strong {
-        font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
-      }
-      span {
-        font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
-        text-decoration: underline;
-      }
-    }
-
-    img.offerBottom {
-      padding-top: 0;
-    }
-  }
-}
-
-.infoDrawer {
-  .makeOffer.drawerTitle,
-  .shakeOffer.drawerTitle {
-    padding-top: 300px;
-  }
+  
 }

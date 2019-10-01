@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const extractSass = new MiniCssExtractPlugin({
   filename: "[name].min.css",
@@ -9,7 +10,7 @@ const extractSass = new MiniCssExtractPlugin({
 });
 
 module.exports = [{
-  mode: 'development',
+  mode: 'production',
   entry: {
     app: './src/index.jsx'
   },
@@ -37,7 +38,7 @@ module.exports = [{
           {
             loader: 'sass-loader',
             options: {
-                outputStyle: 'compact'
+                outputStyle: 'compressed'
             }
           },
         ],
@@ -69,6 +70,13 @@ module.exports = [{
       jQuery: 'jquery'
     }),
     new webpack.HotModuleReplacementPlugin(),
-    extractSass
+    extractSass,
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.(js|css|html|svg)$/,
+      threshold: 8192,
+      minRatio: 0.8
+    })
   ]
 }];

@@ -1,6 +1,14 @@
-@import 'Pagepane';
+@import "Pagepane";
 
 .shopPage.pagePaneContainer {
+  .titleSlide {
+    background: $shopColor;
+
+    .slide-title {
+      color: $shopColor;
+    }
+  }
+
   .titleSlide .pagePaneContent {
     .section1 {
       background: $shopColor;
@@ -32,9 +40,11 @@
     }
   }
 
-  .bulletSlide {}
+  .bulletSlide {
+  }
 
-  .quoteSlide {}
+  .quoteSlide {
+  }
 
   .owl-carousel {
     .sliderContent {
@@ -46,24 +56,13 @@
   }
 
   .endSlide {
-    background: url("../img/shopEND.jpg") top center no-repeat;
-    background-size: contain;
-
-    h2 {
-      font-size: 48px;
-      line-height: 50px;
-    }
+    background: #f6f6f6;
+    
 
     button {
       background: $offerColor;
     }
   }
 
-  .quoteSlide {
-    .quoteText {
-      padding-right: 140px;
-      font-size: 50px;
-      line-height: 63px;
-    }
-  }
+
 }

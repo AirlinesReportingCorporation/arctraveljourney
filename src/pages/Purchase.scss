@@ -1,151 +1,133 @@
-@import 'Pagepane';
+@import "Pagepane";
 
 .purchasePage.pagePaneContainer {
-  .titleSlide .pagePaneContent {
-    .section1 {
-      background: $purchaseColor;
+  .titleSlide {
+    background: $purchaseColor;
 
-      h1 {
-        background: #ffffff;
-        color: $purchaseColor;
-      }
-
-      .sep {
-        background: $purchaseColor;
-      }
-
-      img {
-        bottom: -63px;
-      }
-    }
-
-    .section2 {
-      background: #ffffff;
-
-      p {
-        color: $purchaseColor;
-        padding-top: 100px;
-        margin-bottom: 50px;
-      }
-
-      button {
-        background: $purchaseColor;
-      }
+    .slide-title {
+      color: $purchaseColor;
     }
   }
-
-  .bulletSlide {}
 
   .customPurchaseSlide {
     background: #f8e121;
     height: 100%;
-    padding: 120px 80px;
+    padding: 60px 0;
     color: #000000;
 
     .customPurchaseSlideSub {
       color: #000000;
-      font-size: 72px;
-      line-height: 100px;
-      font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
+      font-size: 2rem;
+      line-height: 1.2px;
+      font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+      font-weight: 900;
+      margin-bottom: 10px;
     }
 
     h1 {
       color: #000000;
-      font-size: 100px;
-      line-height: 110px;
+      font-size: 3rem;
+      line-height: 1.2;
     }
 
     p {
-      font-family: SourceSansPro-Regular, helvetica, arial, sans-serif;
-      font-size: 50px;
-      line-height: 66px;
+      font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 1.2;
     }
 
     .stepOrderContainer {
-      padding-top: 80px;
+      padding-top: 40px;
     }
 
     .stepOrder {
       background: #1a9bd1;
-      background: -webkit-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-      background: -o-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-      background: -moz-linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-      background: linear-gradient(to bottom, #1a9bd1 25%, #26b4e6 50%, #2cc1f1 75%);
-      padding: 80px 60px;
-      box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
+      background: -webkit-linear-gradient(
+        to bottom,
+        #1a9bd1 25%,
+        #26b4e6 50%,
+        #2cc1f1 75%
+      );
+      background: -o-linear-gradient(
+        to bottom,
+        #1a9bd1 25%,
+        #26b4e6 50%,
+        #2cc1f1 75%
+      );
+      background: -moz-linear-gradient(
+        to bottom,
+        #1a9bd1 25%,
+        #26b4e6 50%,
+        #2cc1f1 75%
+      );
+      background: linear-gradient(
+        to bottom,
+        #1a9bd1 25%,
+        #26b4e6 50%,
+        #2cc1f1 75%
+      );
+      padding: 40px 30px;
+      min-height: 400px;
       font-size: 36px;
       margin-bottom: 40px;
       position: relative;
 
+      &:hover {
+        box-shadow: rgba(0, 0, 0, 0.5) 0 20px 60px -10px;
+        cursor: pointer;
+      }
+
       img {
-        position: absolute;
-        right: 80px;
-        top: 30px;
+        padding: 15px;
+        width: 100%;
       }
 
       strong {
-        font-family: SourceSansPro-Black, SourceSansPro-Regular, helvetica, sans-serif;
-        text-decoration: underline;
+        font-family: "Source Sans Pro", helvetica, sans-serif;
+        //text-decoration: underline;
+        font-weight: 900;
       }
     }
   }
 
   .quoteSlide {
     .quoteText {
-      margin-top: 80px;
-      font-size: 50px;
-      line-height: 60px;
+      margin-top: 40px;
+      //font-size: 50px;
+      //line-height: 60px;
 
       img {
-        padding-right: 80px;
-        padding-bottom: 80px;
+        display: block;
+        margin: 0 auto;
+        max-width: 400px;
+        width: 100%;
       }
 
       .quoteNew {
-        font-family: SourceSansPro-Regular, helvetica, arial, sans-serif;
-        font-size: 68px;
-        line-height: 70px;
+        font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+        //font-size: 2rem;
+        //line-height: ;
         padding-top: 40px;
       }
     }
   }
 
   .todayTomorrowSlide {
-    h2 {
-      font-size: 60px;
-      line-height: 70px;
-      padding-left: 120px;
-      padding-right: 120px;
-      padding-bottom: 80px;
-    }
-
-    h2.ttP {
-      font-size: 80px;
-      line-height: 90px;
-    }
-
-    .todayTomorrowContainer {
-      height: 1160px;
+    .todayTomorrowContainer .todayTomorrowMain {
+      min-height: 500px;
     }
   }
 
   .endSlide {
-    background: url("../img/PaymentEND.jpg") top center no-repeat;
-    background-size: contain;
-
-    h2 {
-      font-size: 65px;
-      line-height: 75px;
-    }
-
     button {
       background: $pretripColor;
     }
   }
 
   .blueSlide {
-    background: url("../img/PurchaseBLUE.jpg") center center no-repeat;
-    background-size: contain;
+    //background: url("../img/PurchaseBLUE.jpg") center center no-repeat;
+    //background-size: contain;
   }
 }
 
@@ -154,8 +136,11 @@
     background: #f8e121;
   }
 
+  
+
   .infoDrawer {
     img.chartIMG {
+      max-width: 100%;
       border-radius: 0;
       position: relative;
       border: none;
@@ -173,14 +158,14 @@
   .payment,
   .settlement {
     font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
-    font-size: 100px;
-    line-height: 110px;
+    font-size: 2.5rem;
+    line-height: 1.2rem;
     padding-bottom: 40px;
   }
 }
 
 .order {
-  padding-top: 200px;
+  padding-top: 20px;
 }
 
 .blueDrawer.ant-drawer {
@@ -201,21 +186,23 @@
   .order,
   .payment,
   .settlement {
-    font-family: SourceSansPro-Black, helvetica, arial, sans-serif;
-    font-size: 100px;
-    line-height: 110px;
+    font-family: "Source Sans Pro", helvetica, arial, sans-serif;
+    font-weight: 900;
+    font-size:  3rem;
+    line-height: 1.2;
     padding-bottom: 40px;
   }
 
   h2 {
     color: #ffffff;
     padding-bottom: 80px;
-    font-size: 45px;
+    font-size: 2rem;
+    line-height: 1.2;
   }
 
   p {
-    font-size: 37px;
-    line-height: 45px;
+    font-size: 1.5rem;
+    line-height: 1.2;
   }
 
   strong {

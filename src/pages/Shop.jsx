@@ -1,11 +1,6 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import { MemoryRouter as Router, Route, Link } from "react-router-dom";
-import $ from 'jquery';
-import owlCarousel from "owl.carousel";
 import { Drawer } from 'antd';
-
-import './Shop.scss';
 
 import Pageslide from '../components/Pageslide.jsx';
 import Flipslide from '../components/Flipslide.jsx';
@@ -51,34 +46,6 @@ class Shop extends React.Component {
   }
 
   render() {
-
-    $('.owl-carousel').owlCarousel({
-      center: true,
-      autoplay: false,
-      loop: true,
-      nav: true,
-      autoHeight: false,
-      autoplayTimeout: 5000,
-      autoplaySpeed: 2000,
-      smartSpeed: 700,
-      URLhashListener: true,
-      autoplayHoverPause: true,
-      stagePadding: 160,
-      navText: [
-        '<img src="https://www2.arccorp.com/globalassets/homepage/redesign/latestArrowLeft.png">', '<div class="swipeLeft"><img src="https://www2.arccorp.com/globalassets/traveljourney/img/whiteSlideArrow.png"> Swipe</div>'
-      ],
-      responsive: {
-        0: {
-          items: 1
-        },
-        600: {
-          items: 1
-        },
-        720: {
-          items: 1
-        }
-      }
-    });
 
     let drawerContent = this.state.drawerContent;
 

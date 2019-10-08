@@ -1,14 +1,6 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import { MemoryRouter as Router, Route, Link } from "react-router-dom";
-import { withRouter } from "react-router";
-import $ from 'jquery';
-import owlCarousel from "owl.carousel";
 import { Drawer } from 'antd';
-
-import './Inspire.scss';
-import Slider from '../components/Pageslide.jsx';
-import Slidenav from '../components/Slidenav.jsx';
 import Pageslide from '../components/Pageslide.jsx';
 import Flipslide from '../components/Flipslide.jsx';
 import Todaytomorrow from '../components/Todaytomorrow.jsx';

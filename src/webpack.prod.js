@@ -18,12 +18,6 @@ module.exports = [{
     filename: '[name].min.js',
     path: path.resolve(__dirname, 'dist')
   },
-  devServer: {
-    contentBase: path.join(__dirname, 'src'),
-    watchContentBase: true,
-    hot: true,
-    overlay: true
-  },
   module: {
     rules: [{
         test: /\.(js|jsx)$/,
@@ -47,10 +41,7 @@ module.exports = [{
   },
   resolve: {
     alias: {
-      'vue': 'vue/dist/vue.js',
       'react-dom': '@hot-loader/react-dom',
-      'react-spring$': 'react-spring/web.cjs',
-      'react-spring/renderprops$': 'react-spring/renderprops.cjs'
     },
     extensions: ['*', '.js', '.jsx'],
 
@@ -61,15 +52,11 @@ module.exports = [{
         test: /\.js(\?.*)?$/i,
       }),
     ],
+    splitChunks: {
+      chunks: 'all',
+    }
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jquery: 'jquery',
-      'window.jQuery': 'jquery',
-      jQuery: 'jquery'
-    }),
-    new webpack.HotModuleReplacementPlugin(),
     extractSass,
     new CompressionPlugin({
       filename: '[path].gz[query]',

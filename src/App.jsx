@@ -4,11 +4,6 @@ import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { hot } from 'react-hot-loader';
 import Startpage from './pages/Startpage.jsx';
 
-
-
-//navigation
-import Navigation from './pages/Navigation.jsx';
-
 //pages
 import Inspire from './pages/Inspire.jsx';
 import Shop from './pages/Shop.jsx';
@@ -17,29 +12,6 @@ import Purchase from './pages/Purchase.jsx';
 import Pretrip from './pages/Pretrip.jsx';
 import Trip from './pages/Trip.jsx';
 import Outcome from './pages/Outcome.jsx';
-
-function glide(val) {
-  return val;
-}
-
-const pageTransitions = {
-  atEnter: {
-    offset: 200,
-    opacity: 0
-  },
-  atLeave: {
-    offset: glide(-100),
-    opacity: glide(0)
-  },
-  atActive: {
-    offset: glide(0),
-    opacity: glide(1)
-  }
-};
-
-function mapStyles(styles) {
-  return { transform: `translateY(${styles.offset}%)` };
-}
 
 class App extends Component {
 
@@ -53,10 +25,6 @@ class App extends Component {
     };
 
     this.getRoute = this.getRoute.bind(this);
-  }
-  
-  componentDidupdate(){
-    console.log("did update");
   }
 
   //getRoute on route Navigation
@@ -83,15 +51,10 @@ class App extends Component {
 
   render() {
 
-    var showSlideCtrls = (this.state.showSlideCtrls)
-      ? '1'
-      : '0';
-
     return (<div>
       <Router>
         <div className="pageWrapper">
           <Route path="/" exact render={(props) => <Startpage {...props} routeUpdate={this.getRoute} />} />
-          <Route path="/navigation/" render={(props) => <Navigation {...props} routeUpdate={this.getRoute} />} />
           <Route path="/inspire/" render={(props) => <Inspire {...props} routeUpdate={this.getRoute} />} />
           <Route path="/shop/" render={(props) => <Shop {...props} routeUpdate={this.getRoute} />} />
           <Route path="/offer/" render={(props) => <Offer {...props} routeUpdate={this.getRoute} />} />

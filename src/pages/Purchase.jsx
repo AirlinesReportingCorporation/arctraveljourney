@@ -1,13 +1,8 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import { MemoryRouter as Router, Route, Link } from "react-router-dom";
 import { Drawer } from 'antd';
 
-import './Purchase.scss';
-import Slider from '../components/Pageslide.jsx';
-import Slidenav from '../components/Slidenav.jsx';
 import Pageslide from '../components/Pageslide.jsx';
-import Flipslide from '../components/Flipslide.jsx';
 import Todaytomorrow from '../components/Todaytomorrow.jsx';
 import Topnav from '../components/Topnav.jsx';
 import Footer from '../components/Footer.jsx';

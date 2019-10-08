@@ -1,13 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { useSpring, animated } from 'react-spring';
-
-import { Drawer, Button } from 'antd';
-
 import { withRouter } from 'react-router-dom';
 import { MemoryRouter as Router, Route, Link } from "react-router-dom";
-import './Startpage.scss';
-import Topnav from '../components/Topnav.jsx';
 import smoothscroll from 'smoothscroll-polyfill';
 import LazyLoad from 'react-lazyload';
 import Startnav from '../components/Startnav.jsx';

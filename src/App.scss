@@ -66,6 +66,10 @@ button {
   text-transform: uppercase;
 }
 
+a.button, a.button:visited {
+  text-decoration: none;
+}
+
 .pagePaneContainer {
   position: relative;
   font-family: "Source Sans Pro", helvetica, arial, sans-serif;
@@ -188,3 +192,13 @@ button {
   text-align: center;
   opacity: 0.6;
 }
+
+@import 'pages/Pagepane';
+@import 'pages/Startpage';
+@import 'pages/Inspire';
+@import 'pages/Shop';
+@import 'pages/Offer';
+@import 'pages/Purchase';
+@import 'pages/Pretrip';
+@import 'pages/Trip';
+@import 'pages/Outcome';

@@ -1,8 +1,8 @@
 const path = require('path');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
+const MiniCssExtractPlugin = require("./node_modules/mini-css-extract-plugin");
+const webpack = require('./node_modules/webpack');
+const UglifyJsPlugin = require('./node_modules/uglifyjs-webpack-plugin');
+const CompressionPlugin = require('./node_modules/compression-webpack-plugin');
 
 const extractSass = new MiniCssExtractPlugin({
   filename: "[name].min.css",
@@ -10,13 +10,19 @@ const extractSass = new MiniCssExtractPlugin({
 });
 
 module.exports = [{
-  mode: 'production',
+  mode: 'development',
   entry: {
-    app: './src/index.jsx'
+    app: path.resolve(__dirname, './src/index.jsx')
   },
   output: {
     filename: '[name].min.js',
     path: path.resolve(__dirname, 'dist')
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'src'),
+    watchContentBase: true,
+    hot: true,
+    overlay: true
   },
   module: {
     rules: [{
@@ -41,7 +47,10 @@ module.exports = [{
   },
   resolve: {
     alias: {
+      'vue': 'vue/dist/vue.js',
       'react-dom': '@hot-loader/react-dom',
+      'react-spring$': 'react-spring/web.cjs',
+      'react-spring/renderprops$': 'react-spring/renderprops.cjs'
     },
     extensions: ['*', '.js', '.jsx'],
 
@@ -51,19 +60,16 @@ module.exports = [{
       new UglifyJsPlugin({
         test: /\.js(\?.*)?$/i,
       }),
-    ],
-    splitChunks: {
-      chunks: 'all',
-    }
+    ]
   },
   plugins: [
-    extractSass,
-    new CompressionPlugin({
-      filename: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.(js|css|html|svg)$/,
-      threshold: 8192,
-      minRatio: 0.8
-    })
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jquery: 'jquery',
+      'window.jQuery': 'jquery',
+      jQuery: 'jquery'
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    extractSass
   ]
 }];

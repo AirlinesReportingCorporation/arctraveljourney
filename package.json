@@ -7,7 +7,7 @@
     "test": "webpack",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --hot --inline --open",
-    "build": "webpack -p --config src/webpack.prod.js"
+    "build": "webpack -p"
   },
   "keywords": [],
   "author": "",

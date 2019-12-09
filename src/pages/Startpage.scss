@@ -9,7 +9,7 @@ $maxMobileHeight: 667px; //based off ipad pro
    ================================== */
 
 .startPageWrapper {
-  height: 99.5vh;
+  height: 100vh;
   overflow-y: hidden;
   vertical-align: top;
 }
@@ -341,12 +341,19 @@ $maxMobileHeight: 667px; //based off ipad pro
   position: relative;
   align-items: flex-start;
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+  max-height: 800px;
+  height: 100%;
 
   .mainTitle {
     color: $regularBlack;
     font-weight: 900;
     margin: 0;
     line-height: 0.8;
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin-top: 45px;
   }
 
   .slide1-arrow {

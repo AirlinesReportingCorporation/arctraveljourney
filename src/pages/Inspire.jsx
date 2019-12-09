@@ -144,7 +144,7 @@ class Inspire extends React.Component {
               </div>
               <div className="col-lg-8">
                 <div className="quoteText">
-                  Personalization is the next frontier for our industry. It requires massive customer data management, insights and analytics &mdash; but it holds great promise of getting the right product with theright price point to the right customer.
+                  Personalization is the next frontier for our industry. It requires massive customer data management, insights and analytics &mdash; but it holds great promise of getting the right product with the right price point to the right customer.
               </div>
               </div>
             </div>

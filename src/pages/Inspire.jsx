@@ -138,8 +138,8 @@ class Inspire extends React.Component {
                 </div>
                 <div className="quoteMeta">
                   LAURI REISHUS<br />
-                  Executive Vice President and
-            <br />Chief Operating Officer, ARC
+                  President and
+            <br />Chief Executive Officer, ARC
               </div>
               </div>
               <div className="col-lg-8">
